@@ -1,0 +1,14 @@
+{
+  "customer": "重庆赛力斯汽车有限公司",
+  "contact": "张工",
+  "phone": "138-8888-6666",
+  "date": "2026-05-24",
+  "items": [
+    {"no": 1, "name": "快速门（PVC软帘）", "width": 4000, "height": 4500, "qty": 6, "area": "18.00", "unit_price": 18500, "amount": 111000, "notes": "1.5m/s高速启闭，含雷达感应"},
+    {"no": 2, "name": "硬质快速门（滚筒式）", "width": 5000, "height": 5000, "qty": 3, "area": "25.00", "unit_price": 32000, "amount": 96000, "notes": "铝合金门板，抗风8级"},
+    {"no": 3, "name": "工业滑升门", "width": 4500, "height": 4800, "qty": 4, "area": "21.60", "unit_price": 12800, "amount": 51200, "notes": "40mm保温夹芯板"},
+    {"no": 4, "name": "堆积门", "width": 8000, "height": 7000, "qty": 2, "area": "56.00", "unit_price": 28000, "amount": 56000, "notes": "防爆电机控制箱，加安全光栅"},
+    {"no": 5, "name": "防火卷帘门", "width": 6000, "height": 4200, "qty": 5, "area": "25.20", "unit_price": 9500, "amount": 47500, "notes": "双轨无机特级防火卷帘"},
+    {"no": 6, "name": "空降闸（道闸）", "width": "-", "height": "-", "qty": 2, "area": "-", "unit_price": 8500, "amount": 17000, "notes": "6m杆，含车牌识别联动"}
+  ]
+}
