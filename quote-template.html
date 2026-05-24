@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>立高门业报价单</title>
+<style>
+body { font-family: "PingFang SC","Microsoft YaHei",sans-serif; color:#333; max-width:900px; margin:0 auto; padding:20px; }
+.header { display:flex; justify-content:space-between; align-items:flex-start; border-bottom:3px solid #1a3a5c; padding-bottom:16px; margin-bottom:20px; }
+.header .title { font-size:28px; font-weight:800; color:#1a3a5c; letter-spacing:4px; }
+.header .title span { font-size:14px; display:block; color:#d4380d; letter-spacing:0; margin-top:4px; }
+.info-table { width:100%; font-size:13px; border-collapse:collapse; margin-bottom:24px; }
+.info-table td { padding:4px 8px; border:1px solid #ddd; }
+.info-table .label { background:#f5f5f5; width:80px; font-weight:600; }
+.company-side { width:280px; font-size:12px; line-height:1.8; color:#555; border-left:2px solid #eee; padding-left:16px; }
+.company-side strong { color:#1a3a5c; font-size:14px; }
+.quote-table { width:100%; border-collapse:collapse; font-size:13px; margin-bottom:16px; }
+.quote-table th { background:#1a3a5c; color:#fff; padding:10px 6px; font-weight:500; white-space:nowrap; }
+.quote-table td { padding:8px 6px; border:1px solid #ddd; text-align:center; }
+.quote-table td.left { text-align:left; }
+.quote-table tr:nth-child(even) { background:#fafafa; }
+.quote-table tr.total { font-weight:700; background:#f0f5ff; }
+.quote-table tr.total td { border-top:2px solid #1a3a5c; }
+.summary { display:flex; justify-content:space-between; align-items:flex-end; margin-top:16px; padding-top:12px; border-top:1px solid #eee; }
+.summary .total-chinese { font-size:18px; font-weight:700; color:#d4380d; }
+.summary .total-num { font-size:24px; font-weight:800; text-align:right; }
+.notes { font-size:12px; color:#888; margin-top:20px; padding:12px; background:#fafafa; border-radius:4px; line-height:2; }
+.notes strong { color:#555; }
+.footer { font-size:11px; color:#aaa; text-align:center; margin-top:30px; padding-top:16px; border-top:1px solid #eee; }
+@media print { body { padding:0; } .header { position:running(header); } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <div class="title">立高门业报价单<span>专业生产 · 安装工业门 快速门 伸缩门 道闸</span></div>
+    <p style="margin-top:8px; font-size:13px; color:#888;">全国服务热线：023-67399080</p>
+  </div>
+  <div class="company-side">
+    <strong>重庆立高门业有限公司</strong><br>
+    地址：重庆市巴南区公平场大道845-17<br>
+    网址：www.ligaomenye.com<br>
+    电话：023-67399080<br>
+    联系人：郭纪敏<br>
+    手机：18983919000
+  </div>
+</div>
+
+<table class="info-table">
+  <tr>
+    <td class="label">客户名称</td><td>__客户名称__</td>
+    <td class="label">报价日期</td><td>__日期__</td>
+  </tr>
+  <tr>
+    <td class="label">联 系 人</td><td>__联系人__</td>
+    <td class="label">电　　话</td><td>__电话__</td>
+  </tr>
+</table>
+
+<table class="quote-table">
+  <thead>
+    <tr>
+      <th>序号</th>
+      <th>产品名称</th>
+      <th>门洞宽<br>(mm)</th>
+      <th>门洞高<br>(mm)</th>
+      <th>数量<br>(樘)</th>
+      <th>面积<br>(㎡/樘)</th>
+      <th>单价<br>(元/樘)</th>
+      <th>金额<br>(元)</th>
+      <th>备注</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- __ITEMS__ -->
+  </tbody>
+  <tr class="total">
+    <td colspan="7" style="text-align:right; padding-right:16px;">合　计</td>
+    <td>__TOTAL__</td>
+    <td></td>
+  </tr>
+</table>
+
+<div class="summary">
+  <div class="total-chinese">合计（大写）：__TOTAL_CHINESE__</div>
+  <div class="total-num">¥ __TOTAL__</div>
+</div>
+
+<div class="notes">
+  <strong>备注：</strong><br>
+  1、以上报价含整套门制作、运输、安装等费用；<br>
+  2、报价不含拆门、拆墙、加装门框、门控制箱以上布线等；<br>
+  3、以上报价含13%增值税；<br>
+  4、本报价有效期30天。
+</div>
+
+<div class="footer">
+  重庆立高门业有限公司  ·  15年工业门自研品牌  ·  023-67399080
+</div>
+
+</body>
+</html>
