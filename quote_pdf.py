@@ -43,43 +43,17 @@ class QuotePDF(FPDF):
         self.cell(0, 10, f"{COMPANY} · 15年工业门自研品牌 · {PHONE}", align="C")
 
     def draw_seal(self, x, y):
-        """绘制电子公章 (红色圆形)"""
-        r = 15  # 半径 mm
-        self.set_fill_color(255, 240, 240)
-        self.set_draw_color(200, 30, 30)
-        self.set_line_width(0.8)
-        # 外圆
-        self.ellipse(x-r, y-r, 2*r, 2*r, style="DF")
-        # 内圆
-        self.set_line_width(0.3)
-        self.ellipse(x-r+2, y-r+2, 2*(r-2), 2*(r-2), style="D")
-        # 五角星
-        self.set_fill_color(200, 30, 30)
-        star_size = 5
-        self.draw_five_star(x, y, star_size)
-        # 公司名沿弧 (简化：直接用直排文字)
-        self.set_text_color(200, 30, 30)
-        self.set_font("yahei", "B", 7)
-        self.set_xy(x-13, y+r-8)
-        self.cell(26, 5, COMPANY[:8], align="C")
-        self.set_xy(x-13, y+r-3)
-        self.cell(26, 5, COMPANY[8:], align="C")
-
-    def ellipse(self, x, y, w, h, style=""):
-        """画椭圆 (fpdf2 内置方法)"""
-        super().ellipse(x, y, w, h, style)
-
-    def draw_five_star(self, cx, cy, size):
-        """画简易五角星"""
-        import math
-        points = []
-        for i in range(10):
-            angle = math.pi/2 + i * math.pi/5
-            r = size if i % 2 == 0 else size * 0.4
-            points.append((cx + r * math.cos(angle), cy - r * math.sin(angle)))
-        self.set_fill_color(200, 30, 30)
-        self.set_draw_color(200, 30, 30)
-        self.polygon(points, style="DF")
+        """放置电子公章 (从PNG图片)"""
+        seal_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "images/seal.png")
+        if os.path.exists(seal_path):
+            # 印章图片 204x196, 缩放到约25mm宽
+            self.image(seal_path, x=x-15, y=y-15, w=30)
+        else:
+            # 后备: 文字标注
+            self.set_text_color(200, 30, 30)
+            self.set_font("yahei", "", 8)
+            self.set_xy(x-15, y)
+            self.cell(30, 5, "[电子章]", align="C")
 
 
 # ============================================================
