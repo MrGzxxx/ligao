@@ -28,18 +28,19 @@ TEMPLATE = r"""<!DOCTYPE html>
   .top-bar .info {{ font-size:10px; text-align:right; line-height:1.8; }}
 
   /* 客户信息 */
-  .customer {{ padding:10px 16px; background:#f5f5f5; display:flex; gap:40px; font-size:13px; border-bottom:2px solid #1a3a5c; }}
-  .customer span {{ margin-right:24px; }}
+  .customer {{ padding:8px 16px; background:#f5f5f5; border-bottom:2px solid #1a3a5c; }}
+  .customer table {{ width:100%; margin:0; border:none; }}
+  .customer td {{ padding:3px 12px; font-size:12px; border:none; text-align:left; }}
   .customer b {{ color:#1a3a5c; }}
 
   /* 报价表 */
-  table {{ width:100%; border-collapse:collapse; margin-top:6px; }}
-  th {{ background:#1a3a5c; color:#fff; padding:8px 5px; font-size:11px; font-weight:500; }}
-  td {{ padding:7px 5px; border:1px solid #ddd; text-align:center; font-size:12px; }}
-  td.l {{ text-align:left; }}
-  td.r {{ text-align:right; padding-right:8px; }}
-  tr:nth-child(even) td {{ background:#fafafa; }}
-  tr.total td {{ font-size:14px; font-weight:700; background:#e8f0fa; border-top:2px solid #1a3a5c; }}
+  table.main {{ width:100%; border-collapse:collapse; margin-top:6px; }}
+  table.main th {{ background:#1a3a5c; color:#fff; padding:8px 4px; font-size:10px; font-weight:500; border:1px solid #1a3a5c; }}
+  table.main td {{ padding:6px 4px; border:1px solid #ccc; text-align:center; font-size:11px; }}
+  table.main td.l {{ text-align:left; padding-left:6px; }}
+  table.main td.r {{ text-align:right; padding-right:8px; }}
+  table.main tr.data:nth-child(even) td {{ background:#fafafa; }}
+  table.main tr.total td {{ font-size:13px; font-weight:700; background:#e8f0fa; border-top:2px solid #1a3a5c; }}
 
   /* 底部 */
   .foot {{ margin-top:16px; display:flex; justify-content:space-between; align-items:flex-end; }}
@@ -63,13 +64,15 @@ TEMPLATE = r"""<!DOCTYPE html>
 </div>
 
 <div class="customer">
-  <span><b>客户：</b>{customer}</span>
-  <span><b>联系人：</b>{contact}</span>
-  <span><b>电话：</b>{phone}</span>
-  <span><b>日期：</b>{date}</span>
+  <table><tr>
+    <td><b>客户：</b>{customer}</td>
+    <td><b>联系人：</b>{contact}</td>
+    <td><b>电话：</b>{phone}</td>
+    <td><b>日期：</b>{date}</td>
+  </tr></table>
 </div>
 
-<table>
+<table class="main">
   <thead>
     <tr>
       <th style="width:5%">序号</th>
@@ -183,7 +186,7 @@ def main():
         qty_str = str(qty)
 
         items_html += (
-            f'<tr><td>{no}</td><td class="l">{name}</td>'
+            f'<tr class="data"><td>{no}</td><td class="l">{name}</td>'
             f'<td>{w}</td><td>{h}</td><td>{qty_str}</td><td>{area_str}</td>'
             f'<td class="r">{up_str}</td><td class="r">{amt_str}</td>'
             f'<td class="l">{notes}</td></tr>\n'
