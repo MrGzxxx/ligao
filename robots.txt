@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /images/reports/
+
+Sitemap: https://www.cqlgmy.com/sitemap.xml
