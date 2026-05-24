@@ -1,262 +1,151 @@
 #!/usr/bin/env python3
 """
-立高门业报价单PDF生成器
+立高门业报价单PDF生成器 v2
 用法: python3 quote_pdf.py quote-data.json
-输出: quote-{客户简称}-{日期}.pdf
+流程: 填充HTML模板 → WeasyPrint渲染PDF → 输出
 """
 
 import json, sys, os
 from datetime import datetime
-from fpdf import FPDF
+from weasyprint import HTML
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # ============================================================
-# 配置
+# HTML 模板
 # ============================================================
-FONT_PATH = "/mnt/c/Windows/Fonts/msyh.ttc"      # 微软雅黑 (支持中文)
-FONT_BOLD = "/mnt/c/Windows/Fonts/msyhbd.ttc"     # 微软雅黑粗体
-OUTPUT_DIR = os.path.dirname(os.path.abspath(__file__))
+TEMPLATE = r"""<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  @page {{ size: A4; margin: 12mm 14mm; }}
+  body {{ font-family: "Microsoft YaHei","PingFang SC",sans-serif; color:#333; font-size:12px; line-height:1.6; }}
 
-COMPANY = "重庆立高门业有限公司"
-ADDRESS = "重庆市巴南区公平场大道845号附17号"
-PHONE   = "023-67399080"
-MOBILE  = "18983919000"
-CONTACT = "郭纪敏"
-WEBSITE = "www.ligaomenye.com"
+  /* 顶部蓝色标题栏 */
+  .top-bar {{ background:#1a3a5c; color:#fff; padding:10px 16px; display:flex; justify-content:space-between; align-items:center; border-radius:4px 4px 0 0; }}
+  .top-bar .title {{ font-size:22px; font-weight:800; letter-spacing:3px; }}
+  .top-bar .info {{ font-size:10px; text-align:right; line-height:1.8; }}
 
-# ============================================================
-# PDF 类
-# ============================================================
-class QuotePDF(FPDF):
-    def __init__(self):
-        super().__init__(orientation='P', unit='mm', format='A4')
-        self.add_font("yahei", "", FONT_PATH)
-        self.add_font("yahei", "B", FONT_BOLD)
-        self.set_auto_page_break(auto=True, margin=20)
+  /* 客户信息 */
+  .customer {{ padding:10px 16px; background:#f5f5f5; display:flex; gap:40px; font-size:13px; border-bottom:2px solid #1a3a5c; }}
+  .customer span {{ margin-right:24px; }}
+  .customer b {{ color:#1a3a5c; }}
 
-    def header(self):
-        pass  # 自定义 header 在 body 里画
+  /* 报价表 */
+  table {{ width:100%; border-collapse:collapse; margin-top:6px; }}
+  th {{ background:#1a3a5c; color:#fff; padding:8px 5px; font-size:11px; font-weight:500; }}
+  td {{ padding:7px 5px; border:1px solid #ddd; text-align:center; font-size:12px; }}
+  td.l {{ text-align:left; }}
+  td.r {{ text-align:right; padding-right:8px; }}
+  tr:nth-child(even) td {{ background:#fafafa; }}
+  tr.total td {{ font-size:14px; font-weight:700; background:#e8f0fa; border-top:2px solid #1a3a5c; }}
 
-    def footer(self):
-        self.set_y(-18)
-        self.set_font("yahei", "", 7)
-        self.set_text_color(150,150,150)
-        self.cell(0, 10, f"{COMPANY} · 15年工业门自研品牌 · {PHONE}", align="C")
+  /* 底部 */
+  .foot {{ margin-top:16px; display:flex; justify-content:space-between; align-items:flex-end; }}
+  .summary {{ font-size:14px; }}
+  .summary .big {{ font-size:20px; font-weight:800; color:#d4380d; }}
+  .seal-area {{ text-align:center; }}
+  .seal-area img {{ width:80px; }}
+  .notes {{ font-size:10px; color:#999; margin-top:12px; padding:8px 12px; background:#fafafa; border-radius:4px; line-height:1.8; }}
+  .page-foot {{ margin-top:20px; text-align:center; font-size:9px; color:#bbb; border-top:1px solid #eee; padding-top:10px; }}
+</style>
+</head>
+<body>
 
-    def draw_seal(self, x, y):
-        """放置电子公章 (从PNG图片)"""
-        seal_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "images/seal.png")
-        if os.path.exists(seal_path):
-            # 印章图片 204x196, 缩放到约25mm宽
-            self.image(seal_path, x=x-15, y=y-15, w=30)
-        else:
-            # 后备: 文字标注
-            self.set_text_color(200, 30, 30)
-            self.set_font("yahei", "", 8)
-            self.set_xy(x-15, y)
-            self.cell(30, 5, "[电子章]", align="C")
+<div class="top-bar">
+  <div class="title">立高门业报价单</div>
+  <div class="info">
+    重庆立高门业有限公司<br>
+    地址：重庆市巴南区公平场大道845号附17号<br>
+    电话：023-67399080 | 手机：18983919000 | 联系人：郭纪敏
+  </div>
+</div>
 
+<div class="customer">
+  <span><b>客户：</b>{customer}</span>
+  <span><b>联系人：</b>{contact}</span>
+  <span><b>电话：</b>{phone}</span>
+  <span><b>日期：</b>{date}</span>
+</div>
 
-# ============================================================
-# 页面绘制
-# ============================================================
-def draw_page(pdf, data, page_num=1, total_pages=1):
-    """绘制一页报价单"""
-    # ── 标题区 ──
-    pdf.set_fill_color(26, 58, 92)
-    pdf.rect(12, 10, 186, 28, "F")
-    pdf.set_text_color(255, 255, 255)
-    pdf.set_font("yahei", "B", 22)
-    pdf.set_xy(16, 14)
-    pdf.cell(100, 10, "立高门业报价单")
-    pdf.set_font("yahei", "", 9)
-    pdf.set_xy(16, 24)
-    pdf.cell(100, 8, "专业生产 · 安装工业门 快速门 伸缩门 道闸")
+<table>
+  <thead>
+    <tr>
+      <th style="width:5%">序号</th>
+      <th style="width:22%">产品名称</th>
+      <th style="width:9%">门洞宽<br>(mm)</th>
+      <th style="width:9%">门洞高<br>(mm)</th>
+      <th style="width:7%">数量<br>(樘)</th>
+      <th style="width:9%">面积<br>(㎡)</th>
+      <th style="width:11%">单价<br>(元/樘)</th>
+      <th style="width:11%">金额<br>(元)</th>
+      <th style="width:17%">备注</th>
+    </tr>
+  </thead>
+  <tbody>
+    {items_html}
+  </tbody>
+  <tr class="total">
+    <td colspan="7" style="text-align:right;padding-right:16px;">合  计（含13%增值税）</td>
+    <td class="r">{total}</td>
+    <td></td>
+  </tr>
+</table>
 
-    # ── 公司信息 (右侧) ──
-    pdf.set_text_color(255, 255, 255)
-    pdf.set_font("yahei", "", 7)
-    pdf.set_xy(120, 12)
-    pdf.cell(75, 5, f"电话: {PHONE}  |  手机: {MOBILE}", align="R")
-    pdf.set_xy(120, 18)
-    pdf.cell(75, 5, f"联系人: {CONTACT}  |  {WEBSITE}", align="R")
-    pdf.set_xy(120, 24)
-    pdf.cell(75, 5, ADDRESS, align="R")
+<div class="foot">
+  <div class="summary">
+    合计（大写）：<span class="big">{total_chinese}</span><br>
+    <span class="big">¥ {total}</span>
+  </div>
+  <div class="seal-area">
+    <img src="file://{seal_path}" alt="电子章"><br>
+    <span style="font-size:9px;color:#999;">报价专用章</span>
+  </div>
+</div>
 
-    # ── 客户信息区 ──
-    pdf.set_text_color(50, 50, 50)
-    pdf.set_font("yahei", "", 9)
-    y = 44
-    pdf.set_fill_color(245, 245, 245)
-    pdf.rect(12, y, 186, 14, "F")
-    pdf.set_xy(16, y+2)
-    pdf.cell(24, 5, "客户名称:")
-    pdf.set_font("yahei", "B", 10)
-    pdf.cell(60, 5, data.get("customer", ""))
-    pdf.set_font("yahei", "", 9)
-    pdf.cell(24, 5, "联系人:")
-    pdf.cell(35, 5, data.get("contact", ""))
-    pdf.cell(24, 5, "电话:")
-    pdf.cell(35, 5, data.get("phone", ""))
-    pdf.cell(24, 5, "报价日期:")
-    pdf.cell(0, 5, data.get("date", datetime.now().strftime("%Y-%m-%d")), align="R")
+<div class="notes">
+  <b>备注：</b><br>
+  1、以上报价含整套门制作、运输、安装等全部费用；<br>
+  2、报价不含拆旧门、拆墙、加装门框、门控制箱以上强电布线；<br>
+  3、以上报价含13%增值税专用发票，本报价有效期30天。
+</div>
 
-    # ── 报价表 ──
-    y_start = 62
-    col_w = [10, 44, 19, 19, 14, 18, 22, 22, 28]  # 列宽 mm
-    headers = ["序号","产品名称","门洞宽\n(mm)","门洞高\n(mm)","数量\n(樘)","面积\n(㎡)","单价\n(元/樘)","金额\n(元)","备注"]
-    aligns  = ["C","L","C","C","C","C","R","R","L"]
+<div class="page-foot">
+  重庆立高门业有限公司 · 15年工业门自研品牌 · 023-67399080
+</div>
 
-    # 表头
-    pdf.set_fill_color(26, 58, 92)
-    pdf.set_text_color(255, 255, 255)
-    pdf.set_font("yahei", "B", 8)
-    x = 12
-    for i, (w, hdr) in enumerate(zip(col_w, headers)):
-        pdf.set_xy(x, y_start)
-        # 多行表头
-        lines = hdr.split("\n")
-        if len(lines) > 1:
-            pdf.multi_cell(w, 5, hdr, border=0, align="C")
-        else:
-            pdf.cell(w, 10, hdr, border=0, align="C")
-        x += w
-    pdf.rect(12, y_start, sum(col_w), 10)  # 表头边框
-
-    # 表体
-    items = data.get("items", [])
-    row_h = 8  # 行高
-    max_rows_per_page = 22  # A4 一页大约容纳的行数
-
-    y = y_start + 10
-    pdf.set_draw_color(220, 220, 220)
-    pdf.set_line_width(0.2)
-
-    total = 0
-    for idx, item in enumerate(items):
-        if y > 270:  # 超出页面
-            break
-
-        row_color = (250, 250, 250) if idx % 2 == 0 else (255, 255, 255)
-        pdf.set_fill_color(*row_color)
-        pdf.rect(12, y, sum(col_w), row_h, "F")
-
-        pdf.set_text_color(50, 50, 50)
-        pdf.set_font("yahei", "", 8)
-
-        values = [
-            str(item.get("no", idx+1)),
-            item.get("name", ""),
-            str(item.get("width", "-")),
-            str(item.get("height", "-")),
-            str(item.get("qty", "")),
-            str(item.get("area", "-")),
-            f"{item.get('unit_price',0):,}",
-            f"{item.get('amount', item.get('qty',0)*item.get('unit_price',0)):,}",
-            item.get("notes", ""),
-        ]
-
-        x = 12
-        for i, (w, val, al) in enumerate(zip(col_w, values, aligns)):
-            pdf.set_xy(x, y+1)
-            if al == "R":
-                pdf.cell(w-1, 5, val, align="R")
-            elif al == "C":
-                pdf.cell(w-1, 5, val, align="C")
-            else:
-                pdf.cell(w-1, 5, val, align="L")
-            x += w
-
-        total += item.get("amount", item.get("qty",0)*item.get("unit_price",0))
-        y += row_h
-
-    # 合计行
-    pdf.set_fill_color(235, 240, 250)
-    pdf.set_draw_color(26, 58, 92)
-    pdf.set_line_width(0.6)
-    pdf.rect(12, y, sum(col_w), 10, "DF")
-    pdf.set_text_color(26, 58, 92)
-    pdf.set_font("yahei", "B", 10)
-    pdf.set_xy(12, y+2)
-    pdf.cell(sum(col_w)-col_w[-2]-col_w[-1], 6, "合  计（含13%增值税）", align="R")
-    pdf.set_font("yahei", "B", 11)
-    pdf.set_text_color(200, 30, 30)
-    pdf.cell(col_w[-2]-2, 6, f"{total:,}", align="R")
-    pdf.cell(col_w[-1], 6, "")
-
-    y += 14
-
-    # ── 大写金额 + 电子章 ──
-    chinese_num = num_to_chinese(total)
-    pdf.set_text_color(50, 50, 50)
-    pdf.set_font("yahei", "B", 10)
-    pdf.set_xy(16, y)
-    pdf.cell(100, 6, f"合计（大写）：{chinese_num}")
-
-    # 电子章
-    pdf.draw_seal(175, y+22)
-
-    # ── 备注 ──
-    y += 12
-    pdf.set_font("yahei", "", 7.5)
-    pdf.set_text_color(130, 130, 130)
-    notes = [
-        "备注：",
-        "1、以上报价含整套门制作、运输、安装等全部费用；",
-        "2、报价不含拆旧门、拆墙、加装门框、门控制箱以上强电布线；",
-        "3、以上报价含13%增值税专用发票，本报价有效期30天。",
-    ]
-    pdf.set_xy(16, y)
-    for note in notes:
-        pdf.set_x(16)
-        pdf.cell(180, 4.5, note)
-        pdf.ln()
-
+</body>
+</html>"""
 
 # ============================================================
 # 工具函数
 # ============================================================
 def num_to_chinese(n):
-    """数字转中文大写 (简化版, 万元以内)"""
     digits = "零壹贰叁肆伍陆柒捌玖"
     units = ["", "拾", "佰", "仟"]
-    big_units = ["", "万", "亿"]
-
     if n == 0:
         return "零元整"
     if n >= 100000000:
-        return f"{n:,}元整"  # 超范围直接输出数字
-
+        return f"{n:,}元整"
     wan = n // 10000
     rest = n % 10000
-
-    def convert_4digit(num):
-        if num == 0:
-            return "零"
-        result = ""
-        num_str = f"{num:04d}"
-        prev_zero = False
-        for i, ch in enumerate(num_str):
-            d = int(ch)
-            pos = 3 - i
-            if d == 0:
-                prev_zero = True
+    def conv4(num):
+        if num == 0: return "零"
+        s = f"{num:04d}"
+        r, pz = "", False
+        for i, ch in enumerate(s):
+            d = int(ch); pos = 3 - i
+            if d == 0: pz = True
             else:
-                if prev_zero and result:
-                    result += "零"
-                result += digits[d] + units[pos]
-                prev_zero = False
-        return result.rstrip("零")
-
+                if pz and r: r += "零"
+                r += digits[d] + units[pos]; pz = False
+        return r.rstrip("零")
     result = ""
-    if wan > 0:
-        result += convert_4digit(wan) + "万"
+    if wan > 0: result += conv4(wan) + "万"
     if rest > 0:
-        w_part = convert_4digit(wan) if wan > 0 else ""
-        if w_part and w_part != "零":
-            if rest < 1000:
-                result += "零"
-        result += convert_4digit(rest)
-
+        if wan > 0 and rest < 1000: result += "零"
+        result += conv4(rest)
     return result + "元整"
 
 
@@ -266,28 +155,66 @@ def num_to_chinese(n):
 def main():
     if len(sys.argv) < 2:
         print("用法: python3 quote_pdf.py <quote-data.json>")
-        print("JSON格式见示例文件")
         sys.exit(1)
 
-    json_path = sys.argv[1]
-    with open(json_path, "r", encoding="utf-8") as f:
+    with open(sys.argv[1], "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    pdf = QuotePDF()
-    pdf.add_page()
-    draw_page(pdf, data)
+    # 生成表格行
+    items_html = ""
+    total = 0
+    for item in data.get("items", []):
+        no = item.get("no", "")
+        name = item.get("name", "")
+        w = item.get("width", "-")
+        h = item.get("height", "-")
+        qty = item.get("qty", "")
+        area = item.get("area", "-")
+        up = item.get("unit_price", "")
+        amt = item.get("amount", 0)
+        if amt == 0 and qty and up:
+            amt = int(qty) * int(up)
+        notes = item.get("notes", "")
+        total += amt
 
-    # 输出文件名
+        up_str = f"{up:,}" if isinstance(up, int) and up > 0 else str(up)
+        amt_str = f"{amt:,}"
+        area_str = str(area)
+        qty_str = str(qty)
+
+        items_html += (
+            f'<tr><td>{no}</td><td class="l">{name}</td>'
+            f'<td>{w}</td><td>{h}</td><td>{qty_str}</td><td>{area_str}</td>'
+            f'<td class="r">{up_str}</td><td class="r">{amt_str}</td>'
+            f'<td class="l">{notes}</td></tr>\n'
+        )
+
+    # 填充模板
+    seal_path = os.path.join(SCRIPT_DIR, "images/seal.png").replace("\\", "/")
+    html = TEMPLATE.format(
+        customer=data.get("customer", ""),
+        contact=data.get("contact", ""),
+        phone=data.get("phone", ""),
+        date=data.get("date", datetime.now().strftime("%Y-%m-%d")),
+        items_html=items_html,
+        total=f"{total:,}",
+        total_chinese=num_to_chinese(total),
+        seal_path=seal_path,
+    )
+
+    # 渲染PDF
     customer_short = data.get("customer", "客户")[:6].replace(" ", "")
     date_str = data.get("date", datetime.now().strftime("%Y%m%d")).replace("-", "")
     out_name = f"报价单-{customer_short}-{date_str}.pdf"
-    out_path = os.path.join(OUTPUT_DIR, out_name)
+    out_path = os.path.join(SCRIPT_DIR, out_name)
 
-    pdf.output(out_path)
+    HTML(string=html).write_pdf(out_path)
+
     print(f"✅ 报价单已生成: {out_path}")
     print(f"   客户: {data.get('customer')}")
-    print(f"   总金额: ¥{sum(i.get('amount', i.get('qty',0)*i.get('unit_price',0)) for i in data.get('items',[])):,}")
+    print(f"   总金额: ¥{total:,}")
     return out_path
+
 
 if __name__ == "__main__":
     main()
