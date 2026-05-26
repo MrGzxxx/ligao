@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /images/reports/
 
-Sitemap: https://www.cqlgmy.com/sitemap.xml
+Sitemap: https://mrgzxxx.github.io/ligao/sitemap.xml
