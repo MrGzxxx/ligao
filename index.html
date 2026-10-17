@@ -129,17 +129,21 @@ nav .links { display: flex; gap: 24px; list-style: none; }
 nav .links a { text-decoration: none; color: #555; font-size: 14px; font-weight: 500; transition: color 0.2s; }
 nav .links a:hover { color: #d4380d; }
 .nav-check { position: absolute; opacity: 0; pointer-events: none; }
-.nav-burger { display: none; font-size: 22px; line-height: 1; color: #1a3a5c; cursor: pointer; user-select: none; padding: 4px 8px; }
+.nav-burger { display: none; line-height: 0; color: #1a3a5c; cursor: pointer; user-select: none; padding: 4px 8px; }
 
 /* ===== Hero ===== */
-.hero { margin-top: 60px; padding: 100px 20px 80px; background: linear-gradient(135deg, #1a3a5c 0%, #2a5298 100%); color: #fff; text-align: center; }
-.hero h1 { font-size: 42px; font-weight: 800; letter-spacing: 3px; margin-bottom: 16px; }
+.hero { margin-top: 60px; background: linear-gradient(135deg, #1a3a5c 0%, #2a5298 100%); color: #fff; }
+.hero-inner { max-width: 1180px; margin: 0 auto; padding: 74px 20px 66px; display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 52px; align-items: center; }
+.hero-text { text-align: left; }
+.hero h1 { font-size: 42px; font-weight: 800; letter-spacing: 3px; margin-bottom: 16px; line-height: 1.28; }
 .hero h1 span { color: #ff7a45; white-space: nowrap; }
 .hero .sub { font-size: 18px; opacity: 0.9; margin-bottom: 8px; }
-.hero .stats { display: flex; justify-content: center; gap: 60px; margin-top: 44px; flex-wrap: wrap; }
-.hero .stat .num { font-size: 36px; font-weight: 800; }
+.hero .stats { display: flex; justify-content: flex-start; gap: 42px; margin-top: 38px; flex-wrap: wrap; }
+.hero .stat .num { font-size: 34px; font-weight: 800; }
 .hero .stat .label { font-size: 14px; opacity: 0.75; }
-.hero .cta { margin-top: 34px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.hero .cta { margin-top: 30px; display: flex; gap: 14px; justify-content: flex-start; flex-wrap: wrap; }
+.hero-visual img { width: 100%; height: auto; display: block; border-radius: 10px; box-shadow: 0 20px 46px rgba(0,0,0,0.34); }
+.hero-visual .cap { font-size: 12px; opacity: 0.62; margin-top: 10px; text-align: right; letter-spacing: 0.5px; }
 .btn { display: inline-block; padding: 12px 28px; border-radius: 6px; font-size: 15px; font-weight: 600; text-decoration: none; transition: background 0.2s, border-color 0.2s; }
 .btn.primary { background: #d4380d; color: #fff; }
 .btn.primary:hover { background: #b52f0b; }
@@ -157,7 +161,7 @@ section .inner { max-width: 1200px; margin: 0 auto; }
 .about { background: #f8f9fa; }
 .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
 .about-card { background: #fff; padding: 32px 24px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); text-align: center; }
-.about-card .icon { font-size: 36px; margin-bottom: 12px; }
+.about-card .icon { height: 36px; margin-bottom: 12px; color: #2a5298; display: flex; align-items: center; justify-content: center; }
 .about-card h3 { font-size: 17px; color: #1a3a5c; margin-bottom: 8px; }
 .about-card p { font-size: 14px; color: #666; }
 
@@ -224,6 +228,15 @@ footer { background: #1a3a5c; color: rgba(255,255,255,0.7); text-align: center; 
 footer a { color: rgba(255,255,255,0.9); text-decoration: none; }
 footer p + p { margin-top: 6px; }
 
+/* ===== Hero 窄屏 ===== */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 30px; padding: 52px 20px 50px; }
+  .hero-text { text-align: center; }
+  .hero .stats { justify-content: center; gap: 32px; }
+  .hero .cta { justify-content: center; }
+  .hero-visual .cap { text-align: center; }
+}
+
 /* ===== Mobile ===== */
 @media (max-width: 768px) {
   .hero h1 { font-size: 28px; }
@@ -249,7 +262,7 @@ footer p + p { margin-top: 6px; }
   <div class="inner">
     <div class="logo">立高<span>门业</span></div>
     <input type="checkbox" id="navtoggle" class="nav-check" aria-hidden="true">
-    <label for="navtoggle" class="nav-burger" aria-label="打开菜单">☰</label>
+    <label for="navtoggle" class="nav-burger" aria-label="打开菜单"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></label>
     <ul class="links">
       <li><a href="#about">关于我们</a></li>
       <li><a href="#products">产品中心</a></li>
@@ -264,18 +277,26 @@ footer p + p { margin-top: 6px; }
 
 <!-- ===== Hero ===== -->
 <header class="hero">
-  <p class="sub">重庆立高门业有限公司</p>
-  <h1>15年专注<span>工业门自研制造</span></h1>
-  <p class="sub">15大产品线 · 300+完工项目 · 一站式工业门解决方案</p>
-  <div class="stats">
-    <div class="stat"><div class="num">2011</div><div class="label">年成立</div></div>
-    <div class="stat"><div class="num">15+</div><div class="label">大产品系列</div></div>
-    <div class="stat"><div class="num">60+</div><div class="label">服务企业</div></div>
-    <div class="stat"><div class="num">300+</div><div class="label">完工项目</div></div>
-  </div>
-  <div class="cta">
-    <a class="btn primary" href="tel:18983919000">📞 189-8391-9000</a>
-    <a class="btn ghost" href="#products">查看产品中心</a>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="sub">重庆立高门业有限公司</p>
+      <h1>15年专注<span>工业门自研制造</span></h1>
+      <p class="sub">15大产品线 · 300+完工项目 · 一站式工业门解决方案</p>
+      <div class="stats">
+        <div class="stat"><div class="num">2011</div><div class="label">年成立</div></div>
+        <div class="stat"><div class="num">15+</div><div class="label">大产品系列</div></div>
+        <div class="stat"><div class="num">60+</div><div class="label">服务企业</div></div>
+        <div class="stat"><div class="num">300+</div><div class="label">完工项目</div></div>
+      </div>
+      <div class="cta">
+        <a class="btn primary" href="tel:18983919000"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:7px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>189-8391-9000</a>
+        <a class="btn ghost" href="#products">查看产品中心</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="images/hero-doors.jpg" alt="消防站四扇红色工业提升门实拍 — 重庆立高门业" width="1080" height="720" fetchpriority="high">
+      <p class="cap">仙女山消防队 · 四扇工业提升门</p>
+    </div>
   </div>
 </header>
 
@@ -285,22 +306,22 @@ footer p + p { margin-top: 6px; }
     <div class="section-h"><h2>关于立高</h2><p>重庆本土成长起来的工业门品牌</p></div>
     <div class="about-grid">
       <div class="about-card">
-        <div class="icon">🏭</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 21h20"/><path d="M4 21V8l6 3.5V8l6 3.5V4h4v17"/><path d="M9 21v-4h3v4"/></svg></div>
         <h3>自主研发制造</h3>
         <p>15大产品线全部自主设计生产，从快速门、硬质快速门到隔音门、防撞门，满足不同工业场景需求</p>
       </div>
       <div class="about-card">
-        <div class="icon">📋</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="4" width="15" height="18" rx="2"/><path d="M9 4V2.8h6V4"/><path d="M8.5 10h7M8.5 14h7M8.5 18h4"/></svg></div>
         <h3>15年行业深耕</h3>
         <p>2011年成立，扎根重庆巴南区，累计完成300+项目，覆盖汽车制造、食品医药、物流仓储、环保能源等领域</p>
       </div>
       <div class="about-card">
-        <div class="icon">✅</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="m8 12.3 2.8 2.8L16.4 9"/></svg></div>
         <h3>国家检测认证</h3>
         <p>快速门、折叠门、卷帘门、平开门四大品类通过国家检测机构认证，产品坚固耐用、安全可靠</p>
       </div>
       <div class="about-card">
-        <div class="icon">🔧</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15.6 3.4a5.2 5.2 0 0 0-6.4 6.6l-5.6 5.6a2.2 2.2 0 0 0 3.1 3.1l5.6-5.6a5.2 5.2 0 0 0 6.6-6.4l-2.9 2.9-2.3-.6-.6-2.3z"/></svg></div>
         <h3>全流程服务</h3>
         <p>从现场勘测、方案设计到生产安装、售后维修，全流程自有团队负责，响应快、无推诿</p>
       </div>
@@ -319,7 +340,7 @@ footer p + p { margin-top: 6px; }
         <div class="info">
           <h3>快速门</h3>
           <p>PVC软帘快速门，1.2-1.5m/s高速启闭，防尘保温隔断</p>
-          <div class="project">📍 康明斯 · 赛力斯 · ABB · 太极药业</div>
+          <div class="project"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:3px"><path d="M21 10c0 7-9 12.5-9 12.5S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>康明斯 · 赛力斯 · ABB · 太极药业</div>
           <div class="tags"><span>食品医药</span><span>电子净化</span><span>物流通道</span></div>
         </div>
       </div>
@@ -329,7 +350,7 @@ footer p + p { margin-top: 6px; }
         <div class="info">
           <h3>硬质快速门</h3>
           <p>滚筒式/螺旋式，铝合金门板，抗风等级高，密封性强</p>
-          <div class="project">📍 成都益海 · 涪陵华峰 · 洛碛垃圾处理厂</div>
+          <div class="project"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:3px"><path d="M21 10c0 7-9 12.5-9 12.5S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>成都益海 · 涪陵华峰 · 洛碛垃圾处理厂</div>
           <div class="tags"><span>汽车制造</span><span>垃圾处理</span><span>高洁净车间</span></div>
         </div>
       </div>
@@ -339,7 +360,7 @@ footer p + p { margin-top: 6px; }
         <div class="info">
           <h3>堆积门</h3>
           <p>超大洞口专用，多层帘布，抗风能力强，适合高频率通行</p>
-          <div class="project">📍 东方希望 · 夏家坝垃圾站 · 永川野生动物园</div>
+          <div class="project"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:3px"><path d="M21 10c0 7-9 12.5-9 12.5S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>东方希望 · 夏家坝垃圾站 · 永川野生动物园</div>
           <div class="tags"><span>物流仓储</span><span>大型厂房</span><span>高风压区</span></div>
         </div>
       </div>
@@ -349,7 +370,7 @@ footer p + p { margin-top: 6px; }
         <div class="info">
           <h3>工业滑升门</h3>
           <p>保温夹芯板门体，含柔性提升门、透明提升门、车库提升门</p>
-          <div class="project">📍 长安汽研院 · 仙女山消防队 · 鑫亿典</div>
+          <div class="project"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:3px"><path d="M21 10c0 7-9 12.5-9 12.5S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>长安汽研院 · 仙女山消防队 · 鑫亿典</div>
           <div class="tags"><span>消防站</span><span>汽车4S店</span><span>仓库</span></div>
         </div>
       </div>
@@ -359,7 +380,7 @@ footer p + p { margin-top: 6px; }
         <div class="info">
           <h3>卷帘门</h3>
           <p>含防火卷帘、保温卷帘、管状卷帘、多孔卷帘、车库卷帘</p>
-          <div class="project">📍 长安汽研院 · 环卫项目</div>
+          <div class="project"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:3px"><path d="M21 10c0 7-9 12.5-9 12.5S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>长安汽研院 · 环卫项目</div>
           <div class="tags"><span>地下车库</span><span>商业体</span><span>消防分区</span></div>
         </div>
       </div>
@@ -369,7 +390,7 @@ footer p + p { margin-top: 6px; }
         <div class="info">
           <h3>平开门</h3>
           <p>不锈钢/夹芯板材质，适配人行及小型车行通道</p>
-          <div class="project">📍 涪陵华峰</div>
+          <div class="project"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:3px"><path d="M21 10c0 7-9 12.5-9 12.5S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>涪陵华峰</div>
           <div class="tags"><span>车间入口</span><span>设备间</span><span>围墙门</span></div>
         </div>
       </div>
@@ -379,7 +400,7 @@ footer p + p { margin-top: 6px; }
         <div class="info">
           <h3>推拉门/平移门</h3>
           <p>含钢质隔音平移门（配防爆电机），适合大洞口重型门</p>
-          <div class="project">📍 正升 · 德阳东方电机 · 怡园食品</div>
+          <div class="project"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:3px"><path d="M21 10c0 7-9 12.5-9 12.5S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>正升 · 德阳东方电机 · 怡园食品</div>
           <div class="tags"><span>电力设备</span><span>隔音机房</span><span>重工业</span></div>
         </div>
       </div>
@@ -389,7 +410,7 @@ footer p + p { margin-top: 6px; }
         <div class="info">
           <h3>折叠门</h3>
           <p>电动钢质折叠门，节省安装空间，适合窄边大洞口</p>
-          <div class="project">📍 中铁二十二局 · 上汽红岩</div>
+          <div class="project"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:3px"><path d="M21 10c0 7-9 12.5-9 12.5S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>中铁二十二局 · 上汽红岩</div>
           <div class="tags"><span>轨道工程</span><span>隧道口</span><span>窄通道</span></div>
         </div>
       </div>
@@ -399,7 +420,7 @@ footer p + p { margin-top: 6px; }
         <div class="info">
           <h3>伸缩门</h3>
           <p>电动伸缩门，铝合金/不锈钢材质，企业大门标配</p>
-          <div class="project">📍 工厂园区大门 · 多项目使用</div>
+          <div class="project"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:3px"><path d="M21 10c0 7-9 12.5-9 12.5S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>工厂园区大门 · 多项目使用</div>
           <div class="tags"><span>工厂大门</span><span>学校</span><span>园区入口</span></div>
         </div>
       </div>
@@ -409,7 +430,7 @@ footer p + p { margin-top: 6px; }
         <div class="info">
           <h3>道闸</h3>
           <p>含广告道闸、空降闸，支持车牌识别系统联动</p>
-          <div class="project">📍 万盛煤化</div>
+          <div class="project"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:3px"><path d="M21 10c0 7-9 12.5-9 12.5S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>万盛煤化</div>
           <div class="tags"><span>停车场</span><span>小区</span><span>工厂出入口</span></div>
         </div>
       </div>
@@ -419,7 +440,7 @@ footer p + p { margin-top: 6px; }
         <div class="info">
           <h3>悬浮门</h3>
           <p>无轨悬浮运行，超宽洞口，高抗风性能，运行平稳</p>
-          <div class="project">📍 北大医药</div>
+          <div class="project"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:3px"><path d="M21 10c0 7-9 12.5-9 12.5S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>北大医药</div>
           <div class="tags"><span>大型园区</span><span>超宽通道</span><span>学校医院</span></div>
         </div>
       </div>
@@ -429,7 +450,7 @@ footer p + p { margin-top: 6px; }
         <div class="info">
           <h3>钢大门</h3>
           <p>重型钢质大门，高承重、高耐久，适合工业厂房</p>
-          <div class="project">📍 广安 · 长寿项目</div>
+          <div class="project"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:3px"><path d="M21 10c0 7-9 12.5-9 12.5S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>广安 · 长寿项目</div>
           <div class="tags"><span>重工业</span><span>钢结构厂房</span><span>大型仓库</span></div>
         </div>
       </div>
@@ -439,7 +460,7 @@ footer p + p { margin-top: 6px; }
         <div class="info">
           <h3>隔音门</h3>
           <p>专业隔音降噪设计，适配增压器测试间等高噪环境</p>
-          <div class="project">📍 华夏江津增压器</div>
+          <div class="project"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:3px"><path d="M21 10c0 7-9 12.5-9 12.5S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>华夏江津增压器</div>
           <div class="tags"><span>实验室</span><span>测试车间</span><span>噪声控制</span></div>
         </div>
       </div>
@@ -449,7 +470,7 @@ footer p + p { margin-top: 6px; }
         <div class="info">
           <h3>冷库门</h3>
           <p>低温环境专用，保温密封，适配冷链仓储场景</p>
-          <div class="project">📍 拉斐特</div>
+          <div class="project"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:3px"><path d="M21 10c0 7-9 12.5-9 12.5S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>拉斐特</div>
           <div class="tags"><span>冷库</span><span>冷链物流</span><span>食品加工</span></div>
         </div>
       </div>
@@ -459,7 +480,7 @@ footer p + p { margin-top: 6px; }
         <div class="info">
           <h3>防撞门</h3>
           <p>叉车通道专用，耐冲击自动复位，降低运维成本</p>
-          <div class="project">📍 拉斐特</div>
+          <div class="project"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:3px"><path d="M21 10c0 7-9 12.5-9 12.5S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>拉斐特</div>
           <div class="tags"><span>物流通道</span><span>叉车作业区</span><span>仓储</span></div>
         </div>
       </div>
@@ -474,7 +495,7 @@ footer p + p { margin-top: 6px; }
     <div class="section-h"><h2>应用行业</h2><p>15年深耕，6大行业，300+项目经验</p></div>
     <div class="industry-grid">
       <div class="industry-card">
-        <h3>🚗 汽车制造</h3>
+        <h3><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:8px;color:#2a5298"><path d="M3 17.5h18"/><path d="M5.2 17.5v-4.2l2.3-5.1h9l2.3 5.1v4.2"/><circle cx="8" cy="17.5" r="1.9"/><circle cx="16" cy="17.5" r="1.9"/></svg>汽车制造</h3>
         <ul>
           <li>赛力斯（渝安）— 快速门</li>
           <li>长安汽车/汽研院 — 提升门、卷帘门</li>
@@ -483,7 +504,7 @@ footer p + p { margin-top: 6px; }
         </ul>
       </div>
       <div class="industry-card">
-        <h3>💊 食品医药</h3>
+        <h3><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:8px;color:#2a5298"><path d="M8.6 3.6a4.9 4.9 0 0 1 6.9 6.9l-4.9 4.9a4.9 4.9 0 0 1-6.9-6.9z"/><path d="m5.2 14.9 4.9-4.9"/></svg>食品医药</h3>
         <ul>
           <li>太极药业 — 快速门</li>
           <li>成都顶津食品 — 快速门</li>
@@ -493,7 +514,7 @@ footer p + p { margin-top: 6px; }
         </ul>
       </div>
       <div class="industry-card">
-        <h3>⚡ 工业制造</h3>
+        <h3><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:8px;color:#2a5298"><path d="M13 2.5 4.8 13.6H11l-1 8 8.2-11.1H12z"/></svg>工业制造</h3>
         <ul>
           <li>ABB（中国）— PVC快速门</li>
           <li>康明斯 — 快速门（内置电机）</li>
@@ -504,7 +525,7 @@ footer p + p { margin-top: 6px; }
         </ul>
       </div>
       <div class="industry-card">
-        <h3>♻️ 环保能源</h3>
+        <h3><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:8px;color:#2a5298"><path d="M20 4C10 4 4 9 4 17c0 2 1 3 1 3s7-1 10-4 5-8 5-12z"/><path d="M4 20 12 12"/></svg>环保能源</h3>
         <ul>
           <li>洛碛垃圾处理厂 — 硬质快速门</li>
           <li>夏家坝垃圾站 — 堆积门</li>
@@ -513,7 +534,7 @@ footer p + p { margin-top: 6px; }
         </ul>
       </div>
       <div class="industry-card">
-        <h3>🏗️ 基建工程</h3>
+        <h3><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:8px;color:#2a5298"><path d="M3 21h18"/><path d="M6 21V8l6-4 6 4v13"/><path d="M9 21v-6h6v6"/><path d="M9 12h1M14 12h1"/></svg>基建工程</h3>
         <ul>
           <li>中铁二十二局 — 电动折叠门</li>
           <li>仙女山消防队 — 提升门</li>
@@ -521,7 +542,7 @@ footer p + p { margin-top: 6px; }
         </ul>
       </div>
       <div class="industry-card">
-        <h3>🏢 物流商贸</h3>
+        <h3><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:8px;color:#2a5298"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 7h2M14 7h2M8 11h2M14 11h2M8 15h2M14 15h2"/></svg>物流商贸</h3>
         <ul>
           <li>东方希望集团 — 堆积门、硬质快速门</li>
           <li>永川野生动物园 — 堆积门</li>
