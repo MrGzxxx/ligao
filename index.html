@@ -237,6 +237,14 @@ footer p + p { margin-top: 6px; }
   .hero-visual .cap { text-align: center; }
 }
 
+
+/* ===== Process ===== */
+.process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+.process-step { background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 24px 20px; position: relative; }
+.process-step .n { font-size: 13px; font-weight: 800; color: #d4380d; letter-spacing: 1px; margin-bottom: 10px; }
+.process-step h3 { font-size: 16px; color: #1a3a5c; margin-bottom: 8px; }
+.process-step p { font-size: 13.5px; color: #666; line-height: 1.75; }
+
 /* ===== Mobile ===== */
 @media (max-width: 768px) {
   .hero h1 { font-size: 28px; }
@@ -248,6 +256,7 @@ footer p + p { margin-top: 6px; }
   .industry-grid { grid-template-columns: 1fr; }
   .faq-grid { grid-template-columns: 1fr; }
   .nav-burger { display: block; }
+  .process-grid { grid-template-columns: 1fr; }
   nav .links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #fff; flex-direction: column; gap: 2px; padding: 10px 20px 16px; box-shadow: 0 10px 18px rgba(0,0,0,0.08); }
   nav .links li { padding: 8px 0; border-bottom: 1px solid #f2f2f2; }
   nav .links li:last-child { border-bottom: none; }
@@ -336,7 +345,7 @@ footer p + p { margin-top: 6px; }
     <div class="products-grid">
 
       <div class="product-card">
-        <img src="images/products/rapid-door.jpg" alt="快速门（康明斯项目实拍）— 重庆立高门业" width="1600" height="900" loading="lazy">
+        <img src="images/products/rapid-door.jpg" alt="快速门（康明斯项目实拍）— 重庆立高门业" width="1200" height="900" loading="lazy">
         <div class="info">
           <h3>快速门</h3>
           <p>PVC软帘快速门，1.2-1.5m/s高速启闭，防尘保温隔断</p>
@@ -346,7 +355,7 @@ footer p + p { margin-top: 6px; }
       </div>
 
       <div class="product-card">
-        <img src="images/products/hard-rapid-door.jpg" alt="硬质快速门（成都益海项目实拍）— 重庆立高门业" width="900" height="1600" loading="lazy">
+        <img src="images/products/hard-rapid-door.jpg" alt="硬质快速门（成都益海项目实拍）— 重庆立高门业" width="1200" height="900" loading="lazy">
         <div class="info">
           <h3>硬质快速门</h3>
           <p>滚筒式/螺旋式，铝合金门板，抗风等级高，密封性强</p>
@@ -356,7 +365,7 @@ footer p + p { margin-top: 6px; }
       </div>
 
       <div class="product-card">
-        <img src="images/products/stacking-door.jpg" alt="堆积门 — 重庆立高门业" width="1442" height="1080" loading="lazy">
+        <img src="images/products/stacking-door.jpg" alt="堆积门 — 重庆立高门业" width="1200" height="900" loading="lazy">
         <div class="info">
           <h3>堆积门</h3>
           <p>超大洞口专用，多层帘布，抗风能力强，适合高频率通行</p>
@@ -366,7 +375,7 @@ footer p + p { margin-top: 6px; }
       </div>
 
       <div class="product-card">
-        <img src="images/products/lifting-door.jpg" alt="工业滑升门 — 重庆立高门业" width="1080" height="1440" loading="lazy">
+        <img src="images/products/lifting-door.jpg" alt="工业滑升门 — 重庆立高门业" width="1200" height="900" loading="lazy">
         <div class="info">
           <h3>工业滑升门</h3>
           <p>保温夹芯板门体，含柔性提升门、透明提升门、车库提升门</p>
@@ -376,7 +385,7 @@ footer p + p { margin-top: 6px; }
       </div>
 
       <div class="product-card">
-        <img src="images/products/roller-door.jpg" alt="卷帘门 — 重庆立高门业" width="960" height="1280" loading="lazy">
+        <img src="images/products/roller-door.jpg" alt="卷帘门 — 重庆立高门业" width="1200" height="900" loading="lazy">
         <div class="info">
           <h3>卷帘门</h3>
           <p>含防火卷帘、保温卷帘、管状卷帘、多孔卷帘、车库卷帘</p>
@@ -386,7 +395,7 @@ footer p + p { margin-top: 6px; }
       </div>
 
       <div class="product-card">
-        <img src="images/products/swing-door.jpg" alt="平开门 — 重庆立高门业" width="800" height="600" loading="lazy">
+        <img src="images/products/swing-door.jpg" alt="平开门 — 重庆立高门业" width="1200" height="900" loading="lazy">
         <div class="info">
           <h3>平开门</h3>
           <p>不锈钢/夹芯板材质，适配人行及小型车行通道</p>
@@ -396,7 +405,7 @@ footer p + p { margin-top: 6px; }
       </div>
 
       <div class="product-card">
-        <img src="images/products/sliding-door.jpg" alt="推拉门/平移门 — 重庆立高门业" width="500" height="498" loading="lazy">
+        <img src="images/products/sliding-door.jpg" alt="推拉门/平移门 — 重庆立高门业" width="1200" height="900" loading="lazy">
         <div class="info">
           <h3>推拉门/平移门</h3>
           <p>含钢质隔音平移门（配防爆电机），适合大洞口重型门</p>
@@ -406,7 +415,7 @@ footer p + p { margin-top: 6px; }
       </div>
 
       <div class="product-card">
-        <img src="images/products/folding-door.jpg" alt="折叠门 — 重庆立高门业" width="1050" height="1400" loading="lazy">
+        <img src="images/products/folding-door.jpg" alt="折叠门 — 重庆立高门业" width="1200" height="900" loading="lazy">
         <div class="info">
           <h3>折叠门</h3>
           <p>电动钢质折叠门，节省安装空间，适合窄边大洞口</p>
@@ -416,7 +425,7 @@ footer p + p { margin-top: 6px; }
       </div>
 
       <div class="product-card">
-        <img src="images/products/telescopic-door.jpg" alt="伸缩门 — 重庆立高门业" width="1600" height="681" loading="lazy">
+        <img src="images/products/telescopic-door.jpg" alt="伸缩门 — 重庆立高门业" width="1200" height="900" loading="lazy">
         <div class="info">
           <h3>伸缩门</h3>
           <p>电动伸缩门，铝合金/不锈钢材质，企业大门标配</p>
@@ -426,7 +435,7 @@ footer p + p { margin-top: 6px; }
       </div>
 
       <div class="product-card">
-        <img src="images/products/barrier-gate.jpg" alt="道闸/空降闸 — 重庆立高门业" width="1436" height="1037" loading="lazy">
+        <img src="images/products/barrier-gate.jpg" alt="道闸/空降闸 — 重庆立高门业" width="1200" height="900" loading="lazy">
         <div class="info">
           <h3>道闸</h3>
           <p>含广告道闸、空降闸，支持车牌识别系统联动</p>
@@ -436,7 +445,7 @@ footer p + p { margin-top: 6px; }
       </div>
 
       <div class="product-card">
-        <img src="images/products/suspended-door.jpg" alt="悬浮门（北大医药项目）— 重庆立高门业" width="1600" height="1199" loading="lazy">
+        <img src="images/products/suspended-door.jpg" alt="悬浮门（北大医药项目）— 重庆立高门业" width="1200" height="900" loading="lazy">
         <div class="info">
           <h3>悬浮门</h3>
           <p>无轨悬浮运行，超宽洞口，高抗风性能，运行平稳</p>
@@ -446,7 +455,7 @@ footer p + p { margin-top: 6px; }
       </div>
 
       <div class="product-card">
-        <img src="images/products/steel-gate.jpg" alt="钢大门（广安项目实拍）— 重庆立高门业" width="1440" height="1080" loading="lazy">
+        <img src="images/products/steel-gate.jpg" alt="钢大门（广安项目实拍）— 重庆立高门业" width="1200" height="900" loading="lazy">
         <div class="info">
           <h3>钢大门</h3>
           <p>重型钢质大门，高承重、高耐久，适合工业厂房</p>
@@ -456,7 +465,7 @@ footer p + p { margin-top: 6px; }
       </div>
 
       <div class="product-card">
-        <img src="images/products/soundproof-door.jpg" alt="隔音门（华夏江津增压器项目）— 重庆立高门业" width="720" height="1280" loading="lazy">
+        <img src="images/products/soundproof-door.jpg" alt="隔音门（华夏江津增压器项目）— 重庆立高门业" width="1200" height="900" loading="lazy">
         <div class="info">
           <h3>隔音门</h3>
           <p>专业隔音降噪设计，适配增压器测试间等高噪环境</p>
@@ -466,7 +475,7 @@ footer p + p { margin-top: 6px; }
       </div>
 
       <div class="product-card">
-        <img src="images/products/cold-storage-door.jpg" alt="冷库门 — 重庆立高门业" width="620" height="551" loading="lazy">
+        <img src="images/products/cold-storage-door.jpg" alt="冷库门 — 重庆立高门业" width="1200" height="900" loading="lazy">
         <div class="info">
           <h3>冷库门</h3>
           <p>低温环境专用，保温密封，适配冷链仓储场景</p>
@@ -476,7 +485,7 @@ footer p + p { margin-top: 6px; }
       </div>
 
       <div class="product-card">
-        <img src="images/products/crash-door.jpg" alt="防撞门 — 重庆立高门业" width="620" height="551" loading="lazy">
+        <img src="images/products/crash-door.jpg" alt="防撞门 — 重庆立高门业" width="1200" height="900" loading="lazy">
         <div class="info">
           <h3>防撞门</h3>
           <p>叉车通道专用，耐冲击自动复位，降低运维成本</p>
@@ -588,7 +597,7 @@ footer p + p { margin-top: 6px; }
         <div class="cap"><h3>成都顶津食品</h3><p>快速门 · 2020</p></div>
       </div>
       <div class="project-card">
-        <img src="images/projects/beida-pharma.jpg" alt="北大医药悬浮门项目 — 重庆立高门业" width="1049" height="1400" loading="lazy">
+        <img src="images/projects/beida-pharma.jpg" style="object-position:center 28%" alt="北大医药悬浮门项目 — 重庆立高门业" width="1049" height="1400" loading="lazy">
         <div class="cap"><h3>北大医药</h3><p>悬浮门</p></div>
       </div>
       <div class="project-card">
@@ -600,13 +609,28 @@ footer p + p { margin-top: 6px; }
         <div class="cap"><h3>仙女山消防队</h3><p>工业提升门 · 2018</p></div>
       </div>
       <div class="project-card">
-        <img src="images/projects/huaxia.jpg" alt="华夏江津增压器隔音门项目 — 重庆立高门业" width="720" height="1280" loading="lazy">
+        <img src="images/projects/huaxia.jpg" style="object-position:center 42%" alt="华夏江津增压器隔音门项目 — 重庆立高门业" width="720" height="1280" loading="lazy">
         <div class="cap"><h3>华夏江津增压器</h3><p>隔音门</p></div>
       </div>
       <div class="project-card">
         <img src="images/projects/xianya.jpg" alt="西安欣雅堆积门项目 — 重庆立高门业" width="787" height="1400" loading="lazy">
         <div class="cap"><h3>西安欣雅</h3><p>堆积门 · 2017</p></div>
       </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== Process ===== -->
+<section id="process">
+  <div class="inner">
+    <div class="section-h"><h2>合作流程</h2><p>自有团队全流程负责，勘测到售后不转包</p></div>
+    <div class="process-grid">
+      <div class="process-step"><div class="n">STEP 01</div><h3>现场勘测</h3><p>上门测量洞口尺寸，确认使用场景、开启频率与现场条件</p></div>
+      <div class="process-step"><div class="n">STEP 02</div><h3>方案报价</h3><p>按门型、材质与电机配置出具方案和明细报价</p></div>
+      <div class="process-step"><div class="n">STEP 03</div><h3>生产制造</h3><p>自有车间生产，帘布、门板与控制系统自主配套</p></div>
+      <div class="process-step"><div class="n">STEP 04</div><h3>安装调试</h3><p>自有安装队进场，调试限位、安全保护与设备联动</p></div>
+      <div class="process-step"><div class="n">STEP 05</div><h3>售后维保</h3><p>响应维修与易损件更换，提供长期技术支持</p></div>
     </div>
   </div>
 </section>
