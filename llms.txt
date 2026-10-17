@@ -54,6 +54,16 @@
 - 华夏江津增压器 — 隔音门
 - 西安欣雅 — 堆积门 · 2017
 
+## 产品详情页（5个主力品类）
+
+- 快速门 — https://mrgzxxx.github.io/ligao/rapid-door.html — 适用场景判断、结构与部件、五问选型、安装条件、维护周期、4条FAQ
+- 硬质快速门 — https://mrgzxxx.github.io/ligao/hard-rapid-door.html — 与软帘快速门的差别、螺旋式与滚筒式对比、门板结构、土建配合
+- 堆积门 — https://mrgzxxx.github.io/ligao/stacking-door.html — 超大洞口原理、横向抗风杆、适用与不适用场景、维护重点
+- 工业滑升门 — https://mrgzxxx.github.io/ligao/lifting-door.html — JG/T 353-2012、三种提升方式、扭簧平衡与防坠落、保温密封
+- 道闸 — https://mrgzxxx.github.io/ligao/barrier-gate.html — 系统组成、四类杆型、起落时间与车流量、三重防砸、基础施工
+
+> 口径说明：详情页中的参数为常规配置区间，用于初选与预算参考，非具体项目的性能承诺；实际参数以现场勘测与合同技术附件为准。
+
 ## 常见问法速答
 
 - 价格怎么算？按门型、材质与电机配置出具方案和明细报价；现场勘测会确认洞口尺寸、使用场景、开启频率与现场条件。
