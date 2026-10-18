@@ -386,14 +386,11 @@ nav .links a:hover, nav .links a:focus-visible { color: var(--accent); border-bo
 .group-h { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
 .group-h h3 { font-size: 20px; font-weight: 750; color: var(--navy); padding-left: 10px; border-left: 3px solid var(--accent); line-height: 1.25; }
 .group-h p { font-size: 14px; color: var(--muted); }
-.featured-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
-.product-card.featured { border-top: 3px solid var(--navy); cursor: pointer; }
+.featured-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; grid-auto-flow: dense; }
+.product-card.featured { border-top: 3px solid var(--navy); }
 .product-card.featured .info h3 { font-size: 22px; }
 .product-card.featured img { height: 230px; }
-.product-card.featured .pic { position: relative; display: block; overflow: hidden; }
-.expand-hint { position: absolute; top: 10px; right: 10px; width: 30px; height: 30px; padding: 0; display: flex; align-items: center; justify-content: center; border: 0; border-radius: 3px; background: rgba(26,58,92,.8); color: #fff; cursor: pointer; transition: background .15s; }
-.expand-hint:hover, .expand-hint:focus-visible { background: var(--accent); }
-.product-card.featured.wide .expand-hint { display: none; }
+.product-card.featured .pic { position: relative; display: block; overflow: hidden; text-decoration: none; }
 .expand-tip { margin-left: 4px; color: #8b97a2; }
 .product-card.featured.wide { grid-column: span 2; display: grid; grid-template-columns: 1.05fr .95fr; }
 .product-card.featured.wide .pic { display: block; height: 100%; }
@@ -507,7 +504,7 @@ footer p + p { margin-top: 6px; }
   .product-card.featured.wide .pic { height: auto; }
   .product-card.featured.wide .pic img { height: 220px; min-height: 0; border-right: 0; border-bottom: 1px solid var(--line); }
   .mini-card img { width: 72px; height: 54px; }
-  .expand-hint, .expand-tip { display: none; }
+  .expand-tip { display: none; }
   .about-card h3, .product-card .info h3, .project-card .cap h3, .industry-card h3, .process-step h3, .report-card h3, .faq-item h3 { font-size: 18px; }
   .reports-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
   .report-card { padding: 20px 16px; }
@@ -602,14 +599,13 @@ footer p + p { margin-top: 6px; }
   <div class="inner">
     <div class="section-h"><h2>产品中心</h2><p>15大系列 · 快速门、提升门、伸缩门、悬浮门、道闸为主力品类</p></div>
 
-    <div class="group-h"><h3>五大主力品类</h3><p>自主研发生产 · 均有独立选型页与项目实拍<span class="expand-tip">· 点击卡片可放大</span></p></div>
+    <div class="group-h"><h3>五大主力品类</h3><p>自主研发生产 · 均有独立选型页与项目实拍<span class="expand-tip">· 鼠标滑过卡片可放大</span></p></div>
     <div class="featured-grid">
 
       <article class="product-card featured wide">
-        <div class="pic">
+        <a class="pic" href="rapid-door.html" aria-label="查看快速门详情">
           <img src="images/products/rapid-door.jpg" alt="快速门（康明斯项目实拍）— 重庆立高门业" width="1200" height="900" loading="lazy">
-          <button type="button" class="expand-hint" aria-label="放大查看快速门"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg></button>
-        </div>
+        </a>
         <div class="info">
           <h3><a href="rapid-door.html">快速门</a></h3>
           <p>PVC 软帘快速门，1.2–1.5 m/s 高速启闭，防尘、保温、隔断</p>
@@ -620,10 +616,9 @@ footer p + p { margin-top: 6px; }
       </article>
 
       <article class="product-card featured">
-        <div class="pic">
+        <a class="pic" href="lifting-door.html" aria-label="查看提升门（工业滑升门）详情">
           <img src="images/products/lifting-door.jpg" alt="提升门（工业滑升门） — 重庆立高门业" width="1200" height="900" loading="lazy">
-          <button type="button" class="expand-hint" aria-label="放大查看提升门（工业滑升门）"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg></button>
-        </div>
+        </a>
         <div class="info">
           <h3><a href="lifting-door.html">提升门（工业滑升门）</a></h3>
           <p>保温夹芯板门体，柔性提升、透明提升、车库提升多种做法</p>
@@ -634,10 +629,9 @@ footer p + p { margin-top: 6px; }
       </article>
 
       <article class="product-card featured">
-        <div class="pic">
+        <a class="pic" href="telescopic-door.html" aria-label="查看伸缩门详情">
           <img src="images/products/telescopic-door.jpg" alt="伸缩门 — 重庆立高门业" width="1200" height="900" loading="lazy">
-          <button type="button" class="expand-hint" aria-label="放大查看伸缩门"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg></button>
-        </div>
+        </a>
         <div class="info">
           <h3><a href="telescopic-door.html">伸缩门</a></h3>
           <p>电动伸缩门，铝合金/不锈钢门体，企业大门标配</p>
@@ -648,10 +642,9 @@ footer p + p { margin-top: 6px; }
       </article>
 
       <article class="product-card featured">
-        <div class="pic">
+        <a class="pic" href="suspended-door.html" aria-label="查看悬浮门详情">
           <img src="images/products/suspended-door.jpg" alt="悬浮门 — 重庆立高门业" width="1200" height="900" loading="lazy">
-          <button type="button" class="expand-hint" aria-label="放大查看悬浮门"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg></button>
-        </div>
+        </a>
         <div class="info">
           <h3><a href="suspended-door.html">悬浮门</a></h3>
           <p>无地轨悬浮运行，6–30 m 超宽洞口，抗风性能好</p>
@@ -662,10 +655,9 @@ footer p + p { margin-top: 6px; }
       </article>
 
       <article class="product-card featured">
-        <div class="pic">
+        <a class="pic" href="barrier-gate.html" aria-label="查看道闸详情">
           <img src="images/products/barrier-gate.jpg" alt="道闸 — 重庆立高门业" width="1200" height="900" loading="lazy">
-          <button type="button" class="expand-hint" aria-label="放大查看道闸"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg></button>
-        </div>
+        </a>
         <div class="info">
           <h3><a href="barrier-gate.html">道闸</a></h3>
           <p>含广告道闸、空降闸，可联动车牌识别系统</p>
@@ -991,27 +983,81 @@ document.querySelectorAll('nav .links a').forEach(function (a) {
 </script>
 
 <script>
-/* 主力品类：点击卡片展开为快速门同款宽卡（链接照常跳转） */
+/* 主力品类：鼠标滑过卡片，原地自动展开为宽卡（保持指针在卡内，不跳位） */
 document.querySelectorAll('.featured-grid').forEach(function (grid) {
   var cards = Array.prototype.slice.call(grid.querySelectorAll('.product-card.featured'));
-  function setLabel(card) {
-    var btn = card.querySelector('.expand-hint');
-    var name = card.querySelector('h3') ? card.querySelector('h3').innerText : '';
-    if (btn) btn.setAttribute('aria-label', '放大查看' + name);
-  }
-  function activate(card) {
+  if (cards.length < 2) return;
+  var home = cards[0];
+  var active = home;
+  var wide = window.matchMedia('(min-width: 1001px)');
+
+  function clear() {
     cards.forEach(function (c) {
-      c.classList.toggle('wide', c === card);
-      setLabel(c);
+      if (c.classList.contains('wide')) c.classList.remove('wide');
+      if (c.style.gridRow || c.style.gridColumn) { c.style.gridRow = ''; c.style.gridColumn = ''; }
     });
-    if (grid.firstElementChild !== card) grid.insertBefore(card, grid.firstElementChild);
   }
-  grid.addEventListener('click', function (e) {
-    if (e.target.closest('a')) return;
-    if (window.matchMedia('(max-width: 768px)').matches) return;
-    var card = e.target.closest('.product-card.featured');
-    if (!card || card.classList.contains('wide')) return;
-    activate(card);
+
+  function apply(card) {
+    if (!wide.matches) return;
+    if (card === active && card.classList.contains('wide')) return;
+    /* 量“展开前”的布局：决定这张卡在哪一行/哪一列 */
+    var g = grid.getBoundingClientRect();
+    var r = card.getBoundingClientRect();
+    var cs = getComputedStyle(grid);
+    var colW = parseFloat(cs.gridTemplateColumns.split(' ')[0]) || 0;
+    var gap = parseFloat(cs.columnGap) || 24;
+    var cols = cs.gridTemplateColumns.split(' ').length;
+    var col = colW ? Math.round((r.left - g.left) / (colW + gap)) + 1 : 1;
+    var tops = [];
+    cards.forEach(function (c) {
+      var t = Math.round(c.getBoundingClientRect().top);
+      if (tops.indexOf(t) === -1) tops.push(t);
+    });
+    tops.sort(function (a, b) { return a - b; });
+    var row = tops.indexOf(Math.round(r.top)) + 1;
+
+    clear();
+    card.classList.add('wide');
+    /* 最后一列的卡向右展不开，改成向左展开，保证原卡框仍被包住（否则鼠标会“丢卡”来回跳） */
+    if (col >= cols) {
+      card.style.gridRow = row;
+      card.style.gridColumn = Math.max(1, col - 1) + ' / span 2';
+    }
+    active = card;
+  }
+
+  function restore() {
+    if (!wide.matches) return;
+    var el = document.elementFromPoint(lastX, lastY);
+    if (el && grid.contains(el)) return;
+    setHome();
+  }
+
+  function setHome() {
+    clear();
+    home.classList.add('wide');
+    active = home;
+  }
+
+  var lastX = 0, lastY = 0;
+  cards.forEach(function (card) {
+    card.addEventListener('mouseenter', function (e) {
+      lastX = e.clientX; lastY = e.clientY;
+      apply(card);
+    });
+  });
+  document.addEventListener('mousemove', function (e) { lastX = e.clientX; lastY = e.clientY; }, { passive: true });
+  grid.addEventListener('mouseleave', function () { setTimeout(restore, 180); });
+  grid.addEventListener('focusin', function (e) {
+    var c = e.target.closest('.product-card.featured');
+    if (c) apply(c);
+  });
+  grid.addEventListener('focusout', function () {
+    setTimeout(function () { if (!grid.contains(document.activeElement)) setHome(); }, 0);
+  });
+  wide.addEventListener('change', function () {
+    if (!wide.matches) setHome();
   });
 });
 </script>
