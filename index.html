@@ -381,7 +381,7 @@ nav .links a:hover, nav .links a:focus-visible { color: var(--accent); border-bo
 .product-card .info { padding: 20px; }
 .product-card .info h3 { font-size: 20px; color: var(--navy); margin-bottom: 10px; }
 .product-card .info p { font-size: 15px; color: var(--muted); margin-bottom: 12px; }
-.product-card .info .project { font-size: 13px; color: #596876; padding-top: 10px; border-top: 1px solid #e5e9ed; margin-bottom: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.product-card .info .project { font-size: 13px; color: #596876; }
 .product-card .info .tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .product-card .info .tags span { font-size: 12px; background: #eef2f5; color: #435d73; padding: 3px 8px; border-radius: 2px; }
 
@@ -392,13 +392,12 @@ nav .links a:hover, nav .links a:focus-visible { color: var(--accent); border-bo
 .featured-row { display: flex; align-items: stretch; gap: 24px; }
 .featured-row + .featured-row { margin-top: 24px; }
 .product-card.featured { flex: 1 1 0; min-width: 0; border-top: 3px solid var(--navy);
-  background: rgba(255, 255, 255, .86);
-  transition: flex-grow .55s cubic-bezier(.22, 1, .36, 1), box-shadow .35s ease, border-color .35s ease, transform .35s ease; }
+  background: #fff;
+  transition: box-shadow .35s ease, border-color .35s ease, transform .35s ease; }
 .product-card.featured:hover { background: #fff; border-top-color: var(--accent);
   box-shadow: 0 20px 46px rgba(16, 38, 60, .14); transform: translateY(-3px); }
 .product-card.featured .info h3 { font-size: 22px; }
 /* 预留两行描述高度：卡片变窄时描述换行不会把整行撑高，避免悬停时上下跳动 */
-.product-card.featured .info p { min-height: 52px; }
 .product-card.featured img { height: 230px; transition: transform .7s cubic-bezier(.22, 1, .36, 1); }
 .product-card.featured:hover img { transform: scale(1.045); }
 .product-card.featured .pic { position: relative; display: block; overflow: hidden; text-decoration: none; }
@@ -409,10 +408,18 @@ nav .links a:hover, nav .links a:focus-visible { color: var(--accent); border-bo
   box-shadow: 0 2px 12px rgba(10, 25, 40, .14); color: #14304a; pointer-events: none; }
 .pic-idx { top: 12px; left: 12px; padding: 4px 8px; border-radius: 3px; font-size: 11.5px; font-weight: 700;
   letter-spacing: .08em; font-variant-numeric: tabular-nums; }
-.pic-cta { left: 12px; bottom: 12px; padding: 7px 13px; border-radius: 999px; font-size: 12.5px;
-  opacity: 0; transform: translateY(8px); transition: opacity .3s ease, transform .3s cubic-bezier(.22, 1, .36, 1); }
+.pic-cta { right: 12px; top: 12px; padding: 7px 13px; border-radius: 999px; font-size: 12.5px;
+  opacity: 0; transform: translateY(6px); transition: opacity .3s ease, transform .3s cubic-bezier(.22, 1, .36, 1); }
+.pic-cap { position: absolute; z-index: 2; left: 12px; bottom: 12px; max-width: calc(100% - 24px);
+  display: inline-flex; align-items: center; padding: 7px 12px; border-radius: 4px;
+  -webkit-backdrop-filter: blur(14px) saturate(1.5); backdrop-filter: blur(14px) saturate(1.5);
+  background: rgba(255, 255, 255, .52); border: 1px solid rgba(255, 255, 255, .62);
+  box-shadow: 0 2px 12px rgba(10, 25, 40, .14); color: #14304a; font-size: 12.5px; white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis; pointer-events: none;
+  transition: transform .3s cubic-bezier(.22, 1, .36, 1), background .3s ease; }
+.product-card.featured:hover .pic-cap { transform: translateY(-2px); background: rgba(255, 255, 255, .66); }
 .product-card.featured:hover .pic-cta { opacity: 1; transform: none; }
-.product-card.featured.wide { flex-grow: 2; display: grid; grid-template-columns: 1.05fr .95fr; }
+.product-card.featured.wide { flex: 2 1 0; display: grid; grid-template-columns: 1.05fr .95fr; }
 .product-card.featured.wide .pic { display: block; position: relative; height: 100%; }
 .product-card.featured.wide .pic img { height: 100%; min-height: 320px; border-bottom: 0; border-right: 1px solid var(--line); }
 /* 只在三列桌面端用绝对定位铺满：避免图片高度参与卡高计算，悬停时上下不跳 */
@@ -631,12 +638,13 @@ footer p + p { margin-top: 6px; }
       <article class="product-card featured wide">
         <a class="pic" href="rapid-door.html" aria-label="查看快速门详情">
           <img src="images/products/rapid-door.jpg" alt="快速门（康明斯项目实拍）— 重庆立高门业" width="1200" height="900" loading="lazy">
-          <span class="pic-idx">01</span><span class="pic-cta">查看选型与参数 →</span>
+          <span class="pic-idx">01</span><span class="pic-cta">查看详情 →</span>
+        
+          <div class="pic-cap"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:3px"><path d="M21 10c0 7-9 12.5-9 12.5S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>康明斯 · 赛力斯 · ABB · 太极药业</div>
         </a>
         <div class="info">
           <h3><a href="rapid-door.html">快速门</a></h3>
           <p>PVC 软帘快速门，1.2–1.5 m/s 高速启闭，防尘、保温、隔断</p>
-          <div class="project"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:3px"><path d="M21 10c0 7-9 12.5-9 12.5S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>康明斯 · 赛力斯 · ABB · 太极药业</div>
           <div class="tags"><span>食品医药</span><span>电子净化</span><span>物流通道</span></div>
           <a class="more" href="rapid-door.html">查看选型与参数 →</a>
         </div>
@@ -645,12 +653,13 @@ footer p + p { margin-top: 6px; }
       <article class="product-card featured">
         <a class="pic" href="lifting-door.html" aria-label="查看提升门（工业滑升门）详情">
           <img src="images/products/lifting-door.jpg" alt="提升门（工业滑升门） — 重庆立高门业" width="1200" height="900" loading="lazy">
-          <span class="pic-idx">02</span><span class="pic-cta">查看选型与参数 →</span>
+          <span class="pic-idx">02</span><span class="pic-cta">查看详情 →</span>
+        
+          <div class="pic-cap"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:3px"><path d="M21 10c0 7-9 12.5-9 12.5S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>长安汽研院 · 仙女山消防队</div>
         </a>
         <div class="info">
           <h3><a href="lifting-door.html">提升门（工业滑升门）</a></h3>
           <p>保温夹芯板门体，柔性提升、透明提升、车库提升多种做法</p>
-          <div class="project"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:3px"><path d="M21 10c0 7-9 12.5-9 12.5S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>长安汽研院 · 仙女山消防队</div>
           <div class="tags"><span>消防站</span><span>汽车4S店</span><span>仓库</span></div>
           <a class="more" href="lifting-door.html">查看选型与参数 →</a>
         </div>
@@ -662,12 +671,13 @@ footer p + p { margin-top: 6px; }
       <article class="product-card featured">
         <a class="pic" href="telescopic-door.html" aria-label="查看伸缩门详情">
           <img src="images/products/telescopic-door.jpg" alt="伸缩门 — 重庆立高门业" width="1200" height="900" loading="lazy">
-          <span class="pic-idx">03</span><span class="pic-cta">查看选型与参数 →</span>
+          <span class="pic-idx">03</span><span class="pic-cta">查看详情 →</span>
+        
+          <div class="pic-cap"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:3px"><path d="M21 10c0 7-9 12.5-9 12.5S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>工厂园区大门 · 多项目使用</div>
         </a>
         <div class="info">
           <h3><a href="telescopic-door.html">伸缩门</a></h3>
           <p>电动伸缩门，铝合金/不锈钢门体，企业大门标配</p>
-          <div class="project"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:3px"><path d="M21 10c0 7-9 12.5-9 12.5S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>工厂园区大门 · 多项目使用</div>
           <div class="tags"><span>工厂大门</span><span>学校</span><span>园区入口</span></div>
           <a class="more" href="telescopic-door.html">查看选型与参数 →</a>
         </div>
@@ -676,12 +686,13 @@ footer p + p { margin-top: 6px; }
       <article class="product-card featured">
         <a class="pic" href="suspended-door.html" aria-label="查看悬浮门详情">
           <img src="images/products/suspended-door.jpg" alt="悬浮门 — 重庆立高门业" width="1200" height="900" loading="lazy">
-          <span class="pic-idx">04</span><span class="pic-cta">查看选型与参数 →</span>
+          <span class="pic-idx">04</span><span class="pic-cta">查看详情 →</span>
+        
+          <div class="pic-cap"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:3px"><path d="M21 10c0 7-9 12.5-9 12.5S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>北大医药</div>
         </a>
         <div class="info">
           <h3><a href="suspended-door.html">悬浮门</a></h3>
           <p>无地轨悬浮运行，6–30 m 超宽洞口，抗风性能好</p>
-          <div class="project"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:3px"><path d="M21 10c0 7-9 12.5-9 12.5S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>北大医药</div>
           <div class="tags"><span>大型园区</span><span>超宽通道</span><span>学校医院</span></div>
           <a class="more" href="suspended-door.html">查看选型与参数 →</a>
         </div>
@@ -690,12 +701,13 @@ footer p + p { margin-top: 6px; }
       <article class="product-card featured">
         <a class="pic" href="barrier-gate.html" aria-label="查看道闸详情">
           <img src="images/products/barrier-gate.jpg" alt="道闸 — 重庆立高门业" width="1200" height="900" loading="lazy">
-          <span class="pic-idx">05</span><span class="pic-cta">查看选型与参数 →</span>
+          <span class="pic-idx">05</span><span class="pic-cta">查看详情 →</span>
+        
+          <div class="pic-cap"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:3px"><path d="M21 10c0 7-9 12.5-9 12.5S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>万盛煤化</div>
         </a>
         <div class="info">
           <h3><a href="barrier-gate.html">道闸</a></h3>
           <p>含广告道闸、空降闸，可联动车牌识别系统</p>
-          <div class="project"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:3px"><path d="M21 10c0 7-9 12.5-9 12.5S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>万盛煤化</div>
           <div class="tags"><span>停车场</span><span>小区</span><span>工厂出入口</span></div>
           <a class="more" href="barrier-gate.html">查看选型与参数 →</a>
         </div>
@@ -1013,27 +1025,6 @@ document.querySelectorAll('nav .links a').forEach(function (a) {
     var t = document.getElementById('navtoggle');
     if (t) t.checked = false;
   });
-});
-</script>
-
-<script>
-/* 主力品类：鼠标滑过，本行内平滑加宽（flex-grow 过渡），不换行、不挪位 */
-document.querySelectorAll('.featured-row').forEach(function (row) {
-  var cards = Array.prototype.slice.call(row.querySelectorAll('.product-card.featured'));
-  if (!cards.length) return;
-  var home = row.querySelector('.product-card.featured.wide');   /* 行内默认宽卡，第二行为 null */
-  var wide = window.matchMedia('(min-width: 1001px)');
-
-  function setWide(card) {
-    if (!wide.matches) return;
-    cards.forEach(function (c) { c.classList.toggle('wide', c === card); });
-  }
-
-  cards.forEach(function (card) {
-    card.addEventListener('mouseenter', function () { setWide(card); });
-  });
-  row.addEventListener('mouseleave', function () { setWide(home); });
-  wide.addEventListener('change', function () { if (!wide.matches) setWide(home); });
 });
 </script>
 
