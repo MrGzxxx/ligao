@@ -55,6 +55,22 @@
   "foundingDate": "2011-08-02",
   "areaServed": ["重庆市", "四川省", "云南省", "贵州省"],
   "sameAs": ["https://cqlgmy.1688.com"],
+  "memberOf": {
+    "@type": "Organization",
+    "name": "中国建筑金属结构协会"
+  },
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "建筑门窗行业资格证书（电动门产品安装·贰级）",
+      "credentialCategory": "certification",
+      "dateCreated": "2017-05-24",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "中国建筑金属结构协会"
+      }
+    }
+  ],
   "makesOffer": [
     {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "快速门", "category": "工业门"}},
     {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "工业滑升门", "category": "工业门"}},
@@ -125,6 +141,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "提供全流程自有团队服务：现场勘测、方案设计、生产制造、安装调试、售后维修，响应快、责任清晰。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "有哪些资质证书？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "中国建筑金属结构协会会员单位，会员证号中建金协（钢）第 15100 号；持有该协会颁发的建筑门窗行业资格证书，企业类型为电动门产品安装、资格等级贰级（证书编号 B25315001001，2017 年颁发）。另有四类产品共 20 份国家检测机构检验报告存档。"
       }
     }
   ]
@@ -485,6 +509,17 @@ a.mini-card:hover { border-color: var(--line); background: #fbfcfd; text-decorat
 .report-card .count { font-size: 38px; line-height: 1.2; font-weight: 750; color: var(--accent); font-variant-numeric: tabular-nums; }
 .report-card p { font-size: 14px; color: var(--muted); margin-top: 6px; }
 
+/* ===== Certificates ===== */
+.cert-grid { display: grid; grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr); gap: 24px; align-items: start; }
+.cert-card { display: block; min-width: 0; background: #fff; border: 1px solid var(--line); border-radius: 4px; box-shadow: 0 1px 2px rgba(26,58,92,.025); color: inherit; text-decoration: none; overflow: hidden; }
+.cert-card .shot { height: 500px; display: flex; align-items: center; justify-content: center; background: #f6f8f9; padding: 20px; border-bottom: 1px solid var(--line); }
+.cert-card .shot img { max-width: 100%; max-height: 100%; width: auto; height: auto; background: #fff; box-shadow: 0 3px 14px rgba(16,36,60,.16); transition: transform .3s cubic-bezier(.22, 1, .36, 1); }
+a.cert-card:hover .shot img { transform: translateY(-3px); }
+.cert-card .cap { padding: 16px 18px 18px; }
+.cert-card .cap h3 { font-size: 18px; color: var(--navy); margin-bottom: 5px; }
+.cert-card .cap p { font-size: 13.5px; color: var(--muted); }
+.cert-card .cap .nowrap { white-space: nowrap; }
+
 /* ===== FAQ ===== */
 .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(430px, 1fr)); gap: 18px; }
 .faq-item { padding: 24px; }
@@ -559,6 +594,9 @@ footer p + p { margin-top: 6px; }
   .report-card { padding: 20px 16px; }
   .report-card h3 { margin-bottom: 14px; }
   .report-card .count { font-size: 34px; }
+  .cert-grid { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .cert-card .shot { height: 340px; padding: 16px; }
+  .cert-card .cap { padding: 14px 16px 16px; }
   .contact-info .line { font-size: 15px; }
   .contact-info .line strong { flex-basis: 60px; }
   .nav-burger { display: block; }
@@ -583,6 +621,7 @@ footer p + p { margin-top: 6px; }
       <li><a href="#industries">应用行业</a></li>
       <li><a href="#projects">工程案例</a></li>
       <li><a href="#clients">客户案例</a></li>
+      <li><a href="#certs">资质证书</a></li>
       <li><a href="#reports">检测报告</a></li>
       <li><a href="#contact">联系我们</a></li>
     </ul>
@@ -962,6 +1001,23 @@ footer p + p { margin-top: 6px; }
   </div>
 </section>
 
+<!-- ===== Certificates ===== -->
+<section id="certs" style="background:#f8f9fa;">
+  <div class="inner">
+    <div class="section-h"><h2>资质证书</h2><p>中国建筑金属结构协会会员单位 · 建筑门窗行业资格证书（电动门产品安装）</p></div>
+    <div class="cert-grid">
+      <a class="cert-card" href="images/certificates/ccmsa-member.jpg" target="_blank" rel="noopener">
+        <div class="shot"><img src="images/certificates/ccmsa-member.jpg" alt="中国建筑金属结构协会会员证（中建金协钢第15100号）— 重庆立高门业有限公司" width="900" height="1273" loading="lazy"></div>
+        <div class="cap"><h3>中国建筑金属结构协会 会员证</h3><p>会员证号 中建金协（钢）第 15100 号 · <span class="nowrap">2017 年 4 月</span></p></div>
+      </a>
+      <a class="cert-card" href="images/certificates/ccmsa-qualification.jpg" target="_blank" rel="noopener">
+        <div class="shot"><img src="images/certificates/ccmsa-qualification.jpg" alt="建筑门窗行业资格证书·电动门产品安装贰级（证书编号B25315001001）— 重庆立高门业有限公司" width="900" height="671" loading="lazy"></div>
+        <div class="cap"><h3>建筑门窗行业资格证书 · 电动门产品安装</h3><p>资格等级 贰级 · 证书编号 B25315001001 · <span class="nowrap">2017 年 5 月</span></p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ===== Reports ===== -->
 <section id="reports">
   <div class="inner">
@@ -1003,6 +1059,10 @@ footer p + p { margin-top: 6px; }
       <div class="faq-item">
         <h3>提供安装和售后服务吗？</h3>
         <p>提供全流程自有团队服务：现场勘测、方案设计、生产制造、安装调试、售后维修，响应快、责任清晰。</p>
+      </div>
+      <div class="faq-item">
+        <h3>有哪些资质证书？</h3>
+        <p>中国建筑金属结构协会会员单位，会员证号中建金协（钢）第 15100 号；持有该协会颁发的建筑门窗行业资格证书，企业类型为电动门产品安装、资格等级贰级（证书编号 B25315001001，2017 年颁发）。另有四类产品共 20 份国家检测机构检验报告存档。</p>
       </div>
     </div>
   </div>
