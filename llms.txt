@@ -44,6 +44,11 @@
 - 基建工程
 - 物流商贸（页面FAQ称“物流仓储”）
 
+## 产品与案例总览
+
+- 产品中心 — https://ligaomenye.com/products/
+- 工程案例 — https://ligaomenye.com/cases/
+
 ## 代表项目（12个节选）
 
 - 赛力斯（渝安） — 快速门 · 2024
