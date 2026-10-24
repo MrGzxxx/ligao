@@ -12,7 +12,7 @@
 import json
 import os
 
-SITE = "https://mrgzxxx.github.io/ligao"
+SITE = "https://ligaomenye.com"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TODAY = "2026-10-17"
 
