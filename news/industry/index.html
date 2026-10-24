@@ -48,6 +48,22 @@ nav .links a:hover,nav .links a.active{color:var(--accent)}
 footer{background:#122c48;color:#b9c7d6;padding:26px 0;margin-top:26px;font-size:13px}
 footer a{color:#fff}@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}nav .links{font-size:13px;gap:10px}}
 @media(max-width:600px){.grid{grid-template-columns:1fr}.hero h1{font-size:26px}.hero{padding:38px 0}nav .inner{align-items:flex-start;padding-top:10px;padding-bottom:10px}.logo{font-size:18px}}
+
+/* news layout + sticky contact */
+.inner.news-layout{max-width:1480px;display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:34px;align-items:start}
+.news-main{min-width:0}
+.news-main .inner{max-width:none;padding:0}
+.news-side{position:sticky;top:84px}
+.contact-card{border:1px solid var(--line);border-radius:6px;background:#fff;padding:16px;box-shadow:0 8px 24px rgba(16,24,40,.06)}
+.contact-card h3{font-size:15px;color:var(--navy);margin:0 0 10px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+.contact-card .phone{display:block;font-size:20px;font-weight:700;color:var(--accent);letter-spacing:.4px;margin:2px 0 12px}
+.contact-card .row{display:flex;gap:7px;font-size:12.5px;color:#455564;margin-bottom:7px;line-height:1.6}
+.contact-card .row b{flex:0 0 34px;color:var(--navy);font-weight:600}
+.contact-card .row span{flex:1 1 auto;min-width:0}
+.contact-card .qrbox{text-align:center;border-top:1px dashed var(--line);margin-top:12px;padding-top:12px}
+.contact-card .qrbox img{width:150px;height:150px;margin:0 auto 6px;border:1px solid var(--line);border-radius:3px}
+.contact-card .qrbox p{font-size:12px;color:var(--muted);line-height:1.55;margin:0}
+@media(max-width:1100px){.inner.news-layout{display:block;max-width:1120px}.news-side{position:static;margin:6px 0 22px}.news-main .inner{padding:0}}
 </style></head><body>
 <nav><div class="inner">
 <a class="logo" href="../../index.html">立高<span>门业</span></a>
@@ -55,16 +71,16 @@ footer a{color:#fff}@media(max-width:900px){.grid{grid-template-columns:repeat(2
 <li><a href="../../index.html#about">关于我们</a></li>
 <li><a href="../../index.html#products">产品中心</a></li>
 <li><a href="../../index.html#projects">工程案例</a></li>
-<li><a href="../../index.html#clients">客户案例</a></li>
+<li><a href="../../news/index.html">新闻资讯</a></li>
 <li><a href="../../index.html#certs">资质证书</a></li>
 <li><a href="../../index.html#contact">联系我们</a></li>
-<li><a href="../index.html">新闻资讯</a></li>
 </ul></div></nav>
 <header class="hero"><div class="inner">
 <span class="kicker">新闻资讯 · 立高门业</span>
 <h1>行业知识</h1><div class="tabs"><a class="" href="../index.html">全部</a><a class="" href="../company/index.html">公司动态</a><a class="active" href="../industry/index.html">行业知识</a><a class="" href="../faq/index.html">选型问答</a></div>
 </div></header>
 
+<div class="inner news-layout"><main class="news-main">
 <section class="section"><div class="inner"><h2>文章</h2>
 <div class="grid"><a class="card" href="../lifting-door-spring.html">
 <img src="../../images/products/lifting-door-3.jpg" alt="工业提升门扭簧维护 — 重庆立高门业" width="1200" height="900" loading="lazy">
@@ -76,6 +92,21 @@ footer a{color:#fff}@media(max-width:900px){.grid{grid-template-columns:repeat(2
 <section class="section" style="background:#fff"><div class="inner"><h2>选型与采购指南</h2>
 <div class="list"><a class="item" href="../../guides/industrial-door-price.html"><div><h3>工业门多少钱一平方？</h3></div></a><a class="item" href="../../guides/fast-door-vs-lifting-door.html"><div><h3>快速门和提升门怎么选？</h3></div></a><a class="item" href="../../guides/fast-door-installation.html"><div><h3>快速门安装需要什么条件？</h3></div></a><a class="item" href="../../guides/barrier-gate-types.html"><div><h3>道闸有几种类型？</h3></div></a><a class="item" href="../../guides/retractable-vs-suspended.html"><div><h3>伸缩门和悬浮门怎么选？</h3></div></a><a class="item" href="../../services/maintenance.html"><div><h3>工业门维修保养</h3></div></a><a class="item" href="../../solutions/cold-storage.html"><div><h3>冷库快速门怎么选？</h3></div></a><a class="item" href="../../solutions/automotive.html"><div><h3>汽车工厂工业门方案</h3></div></a></div></div></section>
 
+</main>
+<aside class="news-side">
+  <div class="contact-card">
+    <h3>按现场条件报价</h3>
+    <a href="tel:18983919000" class="phone">189-8391-9000</a>
+    <div class="row"><b>公司</b><span>重庆立高门业有限公司</span></div>
+    <div class="row"><b>地址</b><span>重庆市巴南区公平场大道845号附17号</span></div>
+    <div class="row"><b>服务</b><span>勘测 · 设计 · 生产 · 安装 · 维保</span></div>
+    <div class="qrbox">
+      <img src="../../images/wechat-qr.png" alt="微信咨询二维码 — 立高门业 郭纪敏" width="150" height="150" loading="lazy">
+      <p>微信扫码，加我好友<br>郭纪敏 · 189-8391-9000</p>
+    </div>
+  </div>
+</aside>
+</div>
 <footer><div class="inner">
 <p>© 2011-2026 重庆立高门业有限公司 · 15年工业门自研品牌</p>
 <p><a href="../../index.html#contact">联系我们</a> · 189-8391-9000 · <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">渝ICP备2022002772号-1</a></p>
