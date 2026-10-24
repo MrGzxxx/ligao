@@ -358,8 +358,6 @@ nav .links a { display: inline-block; padding: 5px 0; border-bottom: 2px solid t
 nav .links a:hover, nav .links a:focus-visible { color: var(--accent); border-bottom-color: var(--accent); }
 .nav-check { position: absolute; opacity: 0; pointer-events: none; }
 .nav-burger { display: none; line-height: 0; color: var(--navy); cursor: pointer; user-select: none; padding: 10px; }
-nav .tel { font-weight: 700; color: var(--accent); white-space: nowrap; font-size: 15px; letter-spacing: .3px; }
-nav .tel:hover { color: var(--navy); }
 
 /* ===== Hero ===== */
 .hero { margin-top: 64px; color: #fff; position: relative; overflow: hidden;
@@ -613,6 +611,25 @@ footer p + p { margin-top: 6px; }
   nav .links a { display: block; padding: 10px 0; font-size: 15px; }
   .nav-check:checked ~ .links { display: flex; }
 }
+
+/* ===== 右侧悬浮咨询栏 ===== */
+.consult-rail{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:120;width:68px;font-family:inherit}
+.consult-item{position:relative;border-bottom:1px solid rgba(255,255,255,.28)}
+.consult-item:last-child{border-bottom:0}
+.consult-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;width:68px;height:88px;background:#8b1e2d;color:#fff;text-align:center;text-decoration:none;border:0;cursor:pointer;transition:background .16s}
+.consult-btn:hover,.consult-btn:focus-visible{background:#741725;color:#fff}
+.consult-btn svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.7}
+.consult-btn span{font-size:13px;line-height:1;white-space:nowrap}
+.consult-rail .consult-item:first-child .consult-btn{border-radius:4px 0 0 0}
+.consult-rail .consult-item:last-child .consult-btn{border-radius:0 0 0 4px}
+.consult-pop{position:absolute;right:100%;top:50%;transform:translateY(-50%) translateX(8px);width:226px;background:#fff;border:1px solid #e3e8ef;border-radius:4px;box-shadow:0 14px 34px rgba(16,24,40,.18);padding:16px;opacity:0;visibility:hidden;pointer-events:none;transition:.16s}
+.consult-item:hover .consult-pop,.consult-item:focus-within .consult-pop{opacity:1;visibility:visible;transform:translateY(-50%) translateX(0);pointer-events:auto}
+.consult-pop strong{display:block;color:#1a3a5c;font-size:15px;margin-bottom:7px}
+.consult-pop a{display:block;color:#c8102e;font-size:20px;font-weight:700;letter-spacing:.3px;margin-bottom:6px}
+.consult-pop p{color:#667085;font-size:12.5px;line-height:1.65;margin:0}
+.consult-pop img{width:132px;height:132px;object-fit:contain;border:1px solid #e3e8ef;border-radius:3px;margin:2px auto 8px;display:block;background:#fff}
+.consult-pop.center{text-align:center}
+@media(max-width:1359px){.consult-rail{display:none}}
 </style>
 </head>
 <body>
@@ -631,7 +648,6 @@ footer p + p { margin-top: 6px; }
 <li><a href="#certs">资质证书</a></li>
 <li><a href="#contact">联系我们</a></li>
 </ul>
-    <a class="tel" href="tel:18983919000">189-8391-9000</a>
   </div>
 </nav>
 
@@ -1183,5 +1199,30 @@ document.querySelectorAll('nav .links a').forEach(function (a) {
 });
 </script>
 
+
+<!-- ===== 右侧悬浮咨询 ===== -->
+<aside class="consult-rail" aria-label="在线咨询">
+  <div class="consult-item">
+    <a class="consult-btn" href="tel:18983919000" aria-label="电话咨询">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13a8 8 0 0 1 16 0"/><path d="M4 13v4a2 2 0 0 0 2 2h1v-6H6a2 2 0 0 0-2 2Z"/><path d="M20 13v4a2 2 0 0 1-2 2h-1v-6h1a2 2 0 0 1 2 2Z"/><path d="M8 21h5"/></svg>
+      <span>在线咨询</span>
+    </a>
+    <div class="consult-pop"><strong>电话咨询</strong><a href="tel:18983919000">189-8391-9000</a><p>工作日 8:30–18:00<br>可直接拨打，也可以加微信。</p></div>
+  </div>
+  <div class="consult-item">
+    <a class="consult-btn" href="#contact" aria-label="微信咨询">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM18 18h3v3h-3z"/></svg>
+      <span>微信咨询</span>
+    </a>
+    <div class="consult-pop center"><strong>微信扫码</strong><img src="images/wechat-qr.png" alt="微信咨询二维码 — 立高门业 郭纪敏" width="132" height="132" loading="lazy"><p>郭纪敏 · 189-8391-9000</p></div>
+  </div>
+  <div class="consult-item">
+    <a class="consult-btn" href="#contact" aria-label="留言咨询">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H6l-3 2 1-5a8 8 0 1 1 17-5Z"/><path d="M8 11h8M8 15h5"/></svg>
+      <span>留言咨询</span>
+    </a>
+    <div class="consult-pop"><strong>留个需求</strong><p>把洞口尺寸、通行频率和现场照片发过来，我们给门型建议和报价。</p></div>
+  </div>
+</aside>
 </body>
 </html>
