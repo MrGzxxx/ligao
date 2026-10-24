@@ -613,19 +613,19 @@ footer p + p { margin-top: 6px; }
 }
 
 /* ===== 右侧悬浮咨询栏 ===== */
-.consult-rail{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:120;width:68px;font-family:inherit}
-.consult-item{position:relative;border-bottom:1px solid rgba(255,255,255,.28)}
+.consult-rail{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:120;width:68px;font-family:inherit;border-radius:6px;box-shadow:0 0 0 1px rgba(110,190,255,.16),0 16px 34px rgba(3,16,30,.26)}
+.consult-item{position:relative;border-bottom:1px solid rgba(124,196,255,.2)}
 .consult-item:last-child{border-bottom:0}
-.consult-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;width:68px;height:88px;background:#8b1e2d;color:#fff;text-align:center;text-decoration:none;border:0;cursor:pointer;transition:background .16s}
-.consult-btn:hover,.consult-btn:focus-visible{background:#741725;color:#fff}
-.consult-btn svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.7}
-.consult-btn span{font-size:13px;line-height:1;white-space:nowrap}
+.consult-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;width:68px;height:88px;background:linear-gradient(180deg,#0b2a46,#0f3a5b);color:#e8f4ff;text-align:center;text-decoration:none;border:0;cursor:pointer;transition:background .16s,box-shadow .16s}
+.consult-btn:hover,.consult-btn:focus-visible{background:linear-gradient(180deg,#12466c,#17618f);color:#fff;box-shadow:inset 0 0 18px rgba(100,205,255,.16)}
+.consult-btn svg{width:24px;height:24px;stroke:#8fd3ff;fill:none;stroke-width:1.7;filter:drop-shadow(0 0 5px rgba(80,190,255,.35))}
+.consult-btn span{font-size:13px;line-height:1;white-space:nowrap;color:#eaf6ff}
 .consult-rail .consult-item:first-child .consult-btn{border-radius:4px 0 0 0}
 .consult-rail .consult-item:last-child .consult-btn{border-radius:0 0 0 4px}
-.consult-pop{position:absolute;right:100%;top:50%;transform:translateY(-50%) translateX(8px);width:226px;background:#fff;border:1px solid #e3e8ef;border-radius:4px;box-shadow:0 14px 34px rgba(16,24,40,.18);padding:16px;opacity:0;visibility:hidden;pointer-events:none;transition:.16s}
+.consult-pop{position:absolute;right:100%;top:50%;transform:translateY(-50%) translateX(8px);width:226px;background:#fff;border:1px solid #bcd9ef;border-top:2px solid #4db7e8;border-radius:4px;box-shadow:0 18px 38px rgba(4,28,48,.2);padding:16px;opacity:0;visibility:hidden;pointer-events:none;transition:.16s}
 .consult-item:hover .consult-pop,.consult-item:focus-within .consult-pop{opacity:1;visibility:visible;transform:translateY(-50%) translateX(0);pointer-events:auto}
 .consult-pop strong{display:block;color:#1a3a5c;font-size:15px;margin-bottom:7px}
-.consult-pop a{display:block;color:#c8102e;font-size:20px;font-weight:700;letter-spacing:.3px;margin-bottom:6px}
+.consult-pop a{display:block;color:#0b6ea8;font-size:20px;font-weight:700;letter-spacing:.3px;margin-bottom:6px}
 .consult-pop p{color:#667085;font-size:12.5px;line-height:1.65;margin:0}
 .consult-pop img{width:132px;height:132px;object-fit:contain;border:1px solid #e3e8ef;border-radius:3px;margin:2px auto 8px;display:block;background:#fff}
 .consult-pop.center{text-align:center}
