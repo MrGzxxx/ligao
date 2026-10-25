@@ -58,7 +58,7 @@
 - 中铁二十二局 — 电动折叠门 · 轨道环线项目
 - 洛碛垃圾处理厂 — 螺旋硬质快速门 · 2023
 - 成都顶津食品 — 快速门 · 2020
-- 北大医药 — 悬浮门
+- 某上市药企 — 悬浮门
 - 上汽红岩 — 电动钢质折叠门
 - 仙女山消防队 — 工业提升门 · 2018
 - 华夏江津增压器 — 隔音门
@@ -79,7 +79,7 @@
 - 赛力斯
 - ABB（中国）
 - 东方希望
-- 北大医药
+- 某上市药企
 
 ## 新闻资讯
 
@@ -95,7 +95,7 @@
 - 快速门 — https://ligaomenye.com/rapid-door.html — 适用场景判断、结构与部件、五问选型、安装条件、维护周期、4条FAQ
 - 工业滑升门（提升门） — https://ligaomenye.com/lifting-door.html — JG/T 353-2012、三种提升方式、扭簧平衡与防坠落、保温密封
 - 伸缩门 — https://ligaomenye.com/telescopic-door.html — JG/T 154-2013、有轨与无轨、门体高度与单节宽度、收缩后占地、机头维护
-- 悬浮门 — https://ligaomenye.com/suspended-door.html — 无地轨原理、托轮与立柱、超宽洞口判断、抗风核算、北大医药项目实拍
+- 悬浮门 — https://ligaomenye.com/suspended-door.html — 无地轨原理、托轮与立柱、超宽洞口判断、抗风核算、某上市药企项目实拍
 - 道闸 — https://ligaomenye.com/barrier-gate.html — 系统组成、四类杆型、起落时间与车流量、三重防砸、基础施工
 
 ### 其他系列详情页
