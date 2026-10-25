@@ -1,3 +1,16 @@
 __pycache__/
 _debug.html
 *.pyc
+
+# 报价工具与生产资料（含客户报价、公章、生成脚本）
+# 本地存放：~/.hermes/data/ligao-quote/ —— 不得进入公开仓库或线上站点
+报价单-*.pdf
+报价单-*.docx
+报价单-*.xlsx
+quote-*.html
+quote-test.json
+quote_docx.py
+quote_pdf.py
+quote_xlsx.py
+gen-quote.sh
+images/seal.png
