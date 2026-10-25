@@ -208,4 +208,10 @@
     <loc>https://ligaomenye.com/news/lifting-vs-rapid-door.html</loc>
     <lastmod>2026-10-25</lastmod>
   </url>
+  <url>
+    <loc>https://ligaomenye.com/cases/beida-pharma-gate.html</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
