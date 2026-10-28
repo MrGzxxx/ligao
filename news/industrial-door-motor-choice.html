@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>工业门电机怎么选？普通电机、变频驱动和伺服的差别与代价｜立高门业</title>
+<meta name="description" content="同一樘门，电机配置不同，报价能差出一大截，故障间隔也完全不同。按启停频率、停位精度、环境和维护能力四条线，说明普通电机、变频驱动与伺服各自适合什么场合，以及后加和替换时容易踩的坑。">
+<meta name="keywords" content="电机选型,变频驱动,伺服">
+<link rel="canonical" href="https://ligaomenye.com/news/industrial-door-motor-choice.html">
+<link rel="sitemap" type="application/xml" href="https://ligaomenye.com/sitemap.xml">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="baidu-site-verification" content="codeva-g59a7F1ivo" />
+<meta name="google-site-verification" content="868kUaekqSOZlrUASsTuZd5doMvhhjfsNi5oPS90QJo">
+<meta name="360-site-verification" content="724e3b4ef9135ef3382a4fd31ab45613" />
+<meta name="applicable-device" content="pc,mobile">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工业门电机怎么选？普通电机、变频驱动和伺服的差别与代价">
+<meta property="og:description" content="同一樘门，电机配置不同，报价能差出一大截，故障间隔也完全不同。按启停频率、停位精度、环境和维护能力四条线，说明普通电机、变频驱动与伺服各自适合什么场合，以及后加和替换时容易踩的坑。">
+<meta property="og:url" content="https://ligaomenye.com/news/industrial-door-motor-choice.html">
+<meta property="og:image" content="https://ligaomenye.com/images/products/lifting-door-2.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../images/favicon.png">
+<style>
+:root { --navy:#1a3a5c; --accent:#c43713; --ink:#293744; --muted:#5e6b77; --line:#d6dde3; --soft:#f8f9fa; }
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { -webkit-text-size-adjust:100%; }
+body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; color:var(--ink); background:#fff; line-height:1.75; font-size:15px; }
+img { max-width:100%; display:block; }
+a { color:var(--navy); text-decoration:none; }
+a:hover { text-decoration:underline; }
+.inner { max-width:1120px; margin:0 auto; padding:0 20px; }
+
+/* nav */
+nav { position:sticky; top:0; z-index:50; background:#fff; border-bottom:1px solid var(--line); }
+nav .inner { display:flex; align-items:center; justify-content:space-between; height:64px; gap:16px; }
+.logo { font-size:21px; font-weight:700; color:var(--navy); letter-spacing:.5px; white-space:nowrap; }
+.logo span { color:var(--accent); }
+.nav-check { display:none; }
+.nav-burger { display:none; cursor:pointer; margin-left:auto; color:var(--navy); }
+nav .links { display:flex; gap:24px; list-style:none; align-items:center; }
+nav .links a { font-size:14px; font-weight:600; color:#45515b; padding:5px 0; border-bottom:2px solid transparent; }
+nav .links a:hover { color:var(--accent); border-bottom-color:var(--accent); text-decoration:none; }
+nav .tel { font-weight:700; color:var(--navy); white-space:nowrap; }
+@media (max-width:820px) {
+  .nav-burger { display:block; }
+  nav .inner { gap:10px; }
+  nav .links { display:none; position:absolute; top:100%; left:0; right:0; background:#fff; flex-direction:column; align-items:stretch; gap:0; padding:6px 20px 14px; border-bottom:1px solid var(--line); box-shadow:0 6px 12px rgba(26,58,92,.06); }
+  nav .links li { border-top:1px solid #eef1f4; }
+  nav .links a { display:block; padding:11px 0; border-bottom:0; }
+  .nav-check:checked ~ .links { display:flex; }
+}
+
+/* breadcrumb */
+.crumb { font-size:13px; color:var(--muted); padding:14px 0 0; }
+.crumb a { color:var(--muted); }
+.crumb span { margin:0 6px; color:#b6c1cb; }
+
+/* hero */
+.phero { padding:26px 0 40px; border-bottom:1px solid var(--line); }
+.phero-in { display:grid; grid-template-columns:1.04fr .96fr; gap:44px; align-items:center; }
+.kicker { display:inline-block; font-size:13px; color:var(--accent); border:1px solid #eccfc6; background:#fdf5f2; padding:3px 10px; border-radius:2px; margin-bottom:14px; }
+.phero h1 { font-size:42px; font-weight:800; line-height:1.3; color:var(--navy); letter-spacing:.5px; margin-bottom:16px; }
+.phero h1 small { display:block; font-size:15px; font-weight:400; color:var(--muted); letter-spacing:0; margin-top:10px; }
+.lead { font-size:16px; color:#3d4d5c; margin-bottom:20px; }
+.badges { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:22px; }
+.badges span { font-size:13px; color:#435d73; background:#eef2f5; padding:4px 10px; border-radius:2px; }
+.btns { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+.btn { display:inline-block; padding:12px 22px; border-radius:3px; font-size:15px; font-weight:600; border:1px solid transparent; transition:background .15s,color .15s,border-color .15s; }
+.btn:hover { text-decoration:none; }
+.btn.primary { background:var(--accent); color:#fff; }
+.btn.primary:hover { background:#a92d0f; }
+.btn.ghost { border-color:#b9c5cf; color:var(--navy); background:#fff; }
+.btn.ghost:hover { border-color:var(--navy); }
+.btn:focus-visible { outline:2px solid var(--navy); outline-offset:2px; }
+.phero-visual img { width:100%; height:auto; border:1px solid var(--line); border-radius:3px; background:#f4f4f4; }
+.phero-visual .cap { font-size:13px; color:var(--muted); margin-top:9px; }
+
+/* layout */
+.pbody { display:grid; grid-template-columns:minmax(0,1fr) 316px; gap:48px; padding:44px 0 60px; align-items:start; }
+article, aside { min-width:0; }
+article section + section { margin-top:42px; }
+article h2 { font-size:28px; font-weight:750; color:var(--navy); line-height:1.4; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--line); }
+article h3 { font-size:17px; color:var(--navy); margin:22px 0 8px; }
+article p { margin-bottom:12px; }
+article ul,article ol { margin:0 0 14px 20px; }
+article li { margin-bottom:7px; }
+strong { color:#1f2f3d; }
+
+/* table */
+.tw { overflow-x:auto; -webkit-overflow-scrolling:touch; max-width:100%; margin:6px 0 16px; }
+table { border-collapse:collapse; width:100%; font-size:14px; min-width:520px; table-layout:auto; }
+td, th { word-break:break-word; }
+th,td { border:1px solid var(--line); padding:9px 12px; text-align:left; vertical-align:top; }
+th { background:#f2f5f8; color:var(--navy); font-weight:600; white-space:nowrap; }
+td:first-child { white-space:nowrap; color:#3d4d5c; }
+.yes { color:#1f7a4d; font-weight:600; }
+.no { color:#a33; font-weight:600; }
+.mid { color:#9a6a12; font-weight:600; }
+
+/* note */
+.note { background:var(--soft); border-left:3px solid #9fb1c1; padding:12px 16px; font-size:14px; color:#4a5a68; margin:14px 0; }
+.note b { color:var(--navy); }
+
+/* gallery */
+.gal { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:16px; }
+.gal figure { margin:0; }
+.gal img { width:100%; height:170px; object-fit:cover; border:1px solid var(--line); border-radius:3px; background:#f4f4f4; }
+.gal figcaption { font-size:12.5px; color:var(--muted); margin-top:7px; }
+
+/* faq */
+details { border:1px solid var(--line); border-radius:3px; padding:14px 16px; margin-bottom:10px; background:#fff; }
+details[open] { background:#fcfdfe; }
+summary { font-weight:600; color:var(--navy); cursor:pointer; font-size:15.5px; list-style:none; position:relative; padding-right:22px; }
+summary::-webkit-details-marker { display:none; }
+summary::after { content:"+"; position:absolute; right:0; top:-2px; color:var(--accent); font-weight:400; font-size:20px; }
+details[open] summary::after { content:"\2013"; }
+details p { margin:10px 0 0; font-size:14.5px; color:#455564; }
+
+/* aside */
+aside { position:sticky; top:84px; }
+.card { border:1px solid var(--line); border-radius:4px; padding:20px; background:#fff; box-shadow:0 1px 2px rgba(26,58,92,.03); }
+.card h3 { font-size:16px; color:var(--navy); margin:0 0 12px; padding-bottom:10px; border-bottom:1px solid var(--line); }
+.card .row { display:flex; gap:8px; font-size:14px; color:#455564; margin-bottom:9px; line-height:1.65; }
+.card .row b { flex:0 0 40px; color:var(--navy); font-weight:600; }
+.card .row span { flex:1 1 auto; min-width:0; }
+.card .phone { display:block; font-size:22px; font-weight:700; color:var(--accent); letter-spacing:.5px; margin:2px 0 16px; }
+.qrbox { text-align:center; border-top:1px dashed var(--line); margin-top:14px; padding-top:16px; }
+.qrbox img { width:168px; height:168px; margin:0 auto 8px; border:1px solid var(--line); border-radius:3px; }
+.qrbox p { font-size:13px; color:var(--muted); line-height:1.6; }
+.card + .card { margin-top:16px; }
+.card ul { margin:0; padding:0; list-style:none; }
+.card ul li { font-size:14px; padding:7px 0; border-bottom:1px solid #eef1f4; }
+.card ul li:last-child { border-bottom:0; }
+
+/* related */
+.related { background:var(--soft); padding:40px 0; border-top:1px solid var(--line); }
+.related h2 { font-size:20px; color:var(--navy); margin-bottom:18px; }
+.rel-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+.rel-grid a { display:block; border:1px solid var(--line); background:#fff; border-radius:3px; padding:16px; color:var(--ink); }
+.rel-grid a:hover { border-color:#879bae; text-decoration:none; }
+.rel-grid b { display:block; color:var(--navy); font-size:15.5px; margin-bottom:5px; }
+.rel-grid span { font-size:13px; color:var(--muted); }
+
+/* cta strip */
+.strip { background:var(--navy); color:#fff; padding:34px 0; }
+.strip .inner { display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+.strip p { font-size:17px; }
+.strip small { display:block; font-size:13px; color:#b9cade; margin-top:4px; }
+.strip .btn.primary { background:var(--accent); }
+
+footer { background:#12293f; color:#93a7ba; padding:26px 0; font-size:13px; text-align:center; line-height:2; }
+footer a { color:#c3d3e0; }
+
+@media (max-width:980px) {
+  .pbody { grid-template-columns:1fr; gap:34px; }
+  aside { position:static; }
+  .phero-in { grid-template-columns:1fr; gap:26px; }
+  .phero h1 { font-size:31px; }
+  .rel-grid { grid-template-columns:repeat(2,1fr); }
+  .gal { grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:560px) {
+  table { min-width:0; font-size:12.5px; }
+  th, td { padding:7px 8px; }
+  td:first-child { white-space:normal; }
+  article h2 { font-size:22px; }
+  .pbody { padding:32px 0 44px; }
+  .gal { grid-template-columns:1fr; }
+  .gal img { height:200px; }
+  .rel-grid { grid-template-columns:1fr; }
+  .strip p { font-size:15px; }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "工业门电机怎么选？普通电机、变频驱动和伺服的差别与代价",
+      "description": "同一樘门，电机配置不同，报价能差出一大截，故障间隔也完全不同。按启停频率、停位精度、环境和维护能力四条线，说明普通电机、变频驱动与伺服各自适合什么场合，以及后加和替换时容易踩的坑。",
+      "image": [
+        "https://ligaomenye.com/images/products/rapid-door.jpg"
+      ],
+      "datePublished": "2026-10-28",
+      "dateModified": "2026-10-28",
+      "author": {
+        "@type": "Organization",
+        "name": "重庆立高门业有限公司",
+        "url": "https://ligaomenye.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "重庆立高门业有限公司",
+        "url": "https://ligaomenye.com/"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ligaomenye.com/news/industrial-door-motor-choice.html"
+      }
+    },
+        {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "变频器能后加吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "多数门可以，但要先确认电机绝缘与制动方式能不能配合、机械件能不能承受新速度，再加装并重做行程学习。参数建议由供方调，自己按经验试容易把限位和减速曲线一起搞乱。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "电机摸着发烫，是不是快坏了？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "温升按绝缘等级有上限，摸着烫不等于坏。真正要看的是反复触发过热保护、带载变慢、异响和焦味，这几种才说明负载、电压或者制动出了问题。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "伺服和变频哪个更耐用？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不能一概而论，看工况和维护。闭环件多，对调试和备件要求高；变频结构简单，但怕粉尘和凝露。高频、要精确定位的场合，闭环的稳定性更容易体现；低频、环境差、维护力量弱的场合，通用件的可修性更实际。"
+          }
+        }
+      ]
+    },
+        {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://ligaomenye.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "新闻资讯",
+          "item": "https://ligaomenye.com/news/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "行业知识",
+          "item": "https://ligaomenye.com/news/industry/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "工业门电机怎么选？普通电机、变频驱动和伺服的差别与代价",
+          "item": "https://ligaomenye.com/news/industrial-door-motor-choice.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head><body>
+<nav>
+  <div class="inner">
+    <a class="logo" href="../">立高<span>门业</span></a>
+    <input type="checkbox" id="navtoggle" class="nav-check" aria-hidden="true">
+    <label for="navtoggle" class="nav-burger" aria-label="打开菜单"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></label>
+    <ul class="links">
+<li><a href="../#about">关于我们</a></li>
+<li><a href="../products/">产品中心</a></li>
+<li><a href="../cases/">工程案例</a></li>
+<li><a href="../news/">新闻资讯</a></li>
+<li><a href="../#certs">资质证书</a></li>
+<li><a href="../#contact">联系我们</a></li>
+</ul>
+    <a class="tel" href="tel:18983919000">189-8391-9000</a>
+  </div>
+</nav>
+<div class="inner"><div class="crumb"><a href="../index.html">首页</a><span>/</span><a href="./index.html">新闻资讯</a><span>/</span><a href="./industry/index.html">行业知识</a><span>/</span>工业门电机怎么选？普通电机、变频驱动和伺服的差别与代价</div></div>
+
+<header class="phero">
+  <div class="inner phero-in">
+    <div>
+      <span class="kicker">配置详解</span>
+      <h1>工业门电机怎么选？普通电机、变频驱动和伺服的差别与代价</h1>
+      <p class="lead">同一樘门，一家给普通电机，一家给变频，一家给伺服，报价能差出一截。差价买的不只是零件：每次启停的冲击、停位准不准，还有坏了以后谁来调参数。</p>
+      <div class="badges"><span>电机选型</span><span>变频驱动</span><span>伺服</span></div>
+      <div class="btns">
+        <a class="btn primary" href="tel:18983919000">189-8391-9000</a>
+        <a class="btn ghost" href="../#contact">上门勘测 / 微信咨询</a>
+      </div>
+    </div>
+    <div class="phero-visual">
+      <img src="../images/products/lifting-door-2.jpg" alt="工业门电机与变频、伺服驱动选型 — 重庆立高门业" width="1200" height="900" style="height:420px;object-fit:cover" fetchpriority="high">
+    </div>
+  </div>
+</header>
+
+<div class="inner pbody">
+  <article>
+    <section>
+      <h2>一、三种驱动到底在做什么</h2>
+      <p>定速异步电机配减速机或卷门机，给电就跑，靠机械限位或行程开关停下。结构简单、配件好找、价格低。代价是启动和停止都是硬碰，门体、链条、限位件一起承受冲击，起停一多，磨损比另外两种明显。</p>
+      <p>异步电机加变频器，把启动电流和启停冲击压下来，速度可以分段，减速距离可以设；配制动单元或制动电阻，还能快速停住。多出来的是一套电控：变频器怕粉尘、怕潮、怕凝露，柜体防护和散热要跟上，参数要和门体重量、平衡方式匹配。</p>
+      <p>伺服是永磁同步电机加编码器闭环，速度和位置都在闭环里，停位准、加减速曲线顺，适合高节拍场合。代价是整套价格高，调试和维修都要按型号走，备件不像通用件那样随手能买到。</p>
+    </section>
+
+    <section>
+      <h2>二、按启停次数定档，不按洞口大小定</h2>
+      <p>决定档位的是每天启停多少次，不是洞口多大。日均十次以下，定速电机够用，重点放在刹车和机械限位上；日均几十次，变频能把冲击降下来，机械件的寿命跟着延长；日均几百次，或者要跟产线、门禁、地感联动，闭环才值得考虑。</p>
+      <p>这条线是自己定的管理线，不是强制标准。班次一变、货量一涨，要跟着重新核，别把去年的配置套今年的工况。</p>
+    </section>
+
+    <section>
+      <h2>三、停位精度：什么场合值得为闭环付钱</h2>
+      <p>月台对接、洁净区压差门、自动化产线旁的通道门，需要每次停在同一位置，差几厘米就可能对接不上或者压不住差压，编码器闭环更稳。</p>
+      <p>普通厂房通道、仓库大门，机械限位加缓冲其实够用。把钱花在门体、密封和导轨上，往往比升级电机更容易看出效果。</p>
+      <p>还有一个顺序问题：限位反复被撞、停位一天比一天差，先查机械松动和打滑，别急着换电机。用更强的控制去补机械的偏差，只是把问题往后推。</p>
+    </section>
+
+    <section>
+      <h2>四、环境和维护，是变频与伺服的隐性成本</h2>
+      <p>水泥、玻璃、建材这类粉尘大的车间，控制柜要密封，定期清灰；散热风扇积灰，变频器就会过热保护，故障看着像控制部分坏了，其实是保养没做。</p>
+      <p>冷库和冷链月台的门口，凝露、低温润滑和加热带要一起考虑；冬天温差大的地方，门帘和导轨的间隙也会变，需要复检。</p>
+      <p>维护能力要算进去：本地电工能做的是清灰、紧固端子、听异响、换标准件；参数和行程学习建议交给供方，改错参数比坏一个件更难查。伺服驱动器和电机通常要按型号配套，备件表里别只写电机。</p>
+    </section>
+
+    <section>
+      <h2>五、后加变频或者换电机，注意三件事</h2>
+      <p>先看电机是否适配：绝缘等级、要不要制动电阻、原控制回路能不能给出信号。再看机械：新速度下导轨、链条、刹车要能承受。</p>
+      <p>改完必须重做行程学习，让控制器重新记上下限位。旧限位套在新速度上，下一次运行就会撞。</p>
+      <p>伺服临时坏掉用普通电机顶，应急可以，但停位精度和节拍会降，门禁、地感、产线的联动逻辑可能失效，长期还是按原方案修，或者整套改成变频。</p>
+    </section>
+
+    <section>
+      <h2>六、签合同前值得写清楚的四行</h2>
+      <p>电机和变频器的品牌型号、防护等级、带不带编码器；制动方式，是机械抱闸还是能耗制动；联动接口要几路信号，用干接点还是通讯；以及备件清单和保内响应时间。</p>
+      <p>门体、电机、控制器分属不同供方时，把责任边界写清楚。现场出问题，先分清是机械、控制还是参数，比争论谁的责任更有用。</p>
+    </section>
+
+    <section>
+      <h2>关于立高门业</h2>
+      <p>重庆立高门业有限公司从 2011 年开始做工业门，快速门、提升门、伸缩门、悬浮门、道闸等十五个系列，服务汽车、医药、建材、物流行业的工厂和园区。选型时先到现场量门洞、看净空、确认电源和土建条件，再给方案和报价。</p>
+      <p>官网：https://ligaomenye.com/ 联系电话：189-8391-9000</p>
+    </section>
+
+    <section>
+      <h2>常见问题</h2>
+      <details><summary>变频器能后加吗？</summary><p>多数门可以，但要先确认电机绝缘与制动方式能不能配合、机械件能不能承受新速度，再加装并重做行程学习。参数建议由供方调，自己按经验试容易把限位和减速曲线一起搞乱。</p></details>
+      <details><summary>电机摸着发烫，是不是快坏了？</summary><p>温升按绝缘等级有上限，摸着烫不等于坏。真正要看的是反复触发过热保护、带载变慢、异响和焦味，这几种才说明负载、电压或者制动出了问题。</p></details>
+      <details><summary>伺服和变频哪个更耐用？</summary><p>不能一概而论，看工况和维护。闭环件多，对调试和备件要求高；变频结构简单，但怕粉尘和凝露。高频、要精确定位的场合，闭环的稳定性更容易体现；低频、环境差、维护力量弱的场合，通用件的可修性更实际。</p></details>
+    </section>
+    </article>
+<aside>
+  <div class="card">
+    <h3>按现场条件报价</h3>
+    <a href="tel:18983919000" class="phone">189-8391-9000</a>
+    <div class="row"><b>公司</b><span>重庆立高门业有限公司</span></div>
+    <div class="row"><b>地址</b><span>重庆市巴南区公平场大道845号附17号</span></div>
+    <div class="row"><b>服务</b><span>勘测 · 设计 · 生产 · 安装 · 维保</span></div>
+    <div class="qrbox">
+      <img src="../images/wechat-qr.png" alt="微信咨询二维码 — 立高门业 郭纪敏" width="168" height="168" loading="lazy">
+      <p>微信扫码，加我好友<br>郭纪敏 · 189-8391-9000</p>
+    </div>
+  </div>
+  <div class="card">
+    <h3>常被问到</h3>
+    <ul>
+      <li>能不能先上门量尺寸？</li>
+      <li>旧门能不能只换门体？</li>
+      <li>外地项目做不做？</li>
+      <li>交期一般多久？</li>
+    </ul>
+  </div>
+</aside>
+</div>
+
+<section class="strip">
+  <div class="inner">
+    <p>不确定该用哪一种门？<small>把洞口尺寸、通行频率、现场照片发过来，我们给方案和报价。</small></p>
+    <a class="btn primary" href="tel:18983919000"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:7px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>189-8391-9000</a>
+  </div>
+</section>
+
+<section class="related">
+  <div class="inner">
+    <h2>相关页面</h2>
+    <div class="rel-grid"><a href="../guides/industrial-door-price.html"><b>工业门价格</b><span>价格构成与询价清单</span></a><a href="../rapid-door.html"><b>快速门</b><span>门体、电机与安全配置</span></a><a href="../services/maintenance.html"><b>维修保养</b><span>低价配置的后期成本</span></a><a href="../#contact"><b>联系我们</b><span>按配置报价</span></a></div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2011-2026 重庆立高门业有限公司 &nbsp;|&nbsp; 15年工业门自研品牌</p>
+  <p><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">渝ICP备2022002772号-1</a></p>
+  <p><a href="../">返回首页</a> · <a href="../#products">全部产品</a> · <a href="../#contact">联系方式</a></p>
+</footer>
+</body>
+</html>
